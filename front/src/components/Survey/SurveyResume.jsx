@@ -1,10 +1,35 @@
 import React from 'react'
 import './surveyResume.css'
 
-const SurveyResume = () => {
+const SurveyResume = ({selectedBrand, selectedModel, selectedStorage}) => {
   return (
     <div className='resume_background'>
-      SurveyResume
+
+     {
+      selectedBrand === "" 
+      ? null
+      : <div className="resume_section">
+      <p>Marque</p>
+      <p>{selectedBrand}</p>
+    </div>
+     } 
+     {
+      selectedModel === "" 
+      ? null
+      : <div className="resume_section">
+      <p>Model</p>
+      <p>{selectedModel}</p>
+    </div>
+     } 
+      {
+      selectedStorage === "" 
+      ? null
+      : <div className="resume_section">
+      <p>Storage</p>
+      <p>{selectedStorage}</p>
+    </div>
+     } 
+      
     </div>
   )
 }
