@@ -7,6 +7,8 @@ import './addPhone.css'
 import illustration from '../assets/ajouter-mobile_illus.png'
 
 const AddPhone = () => {
+
+    
   return (
     <div className='add_phone_page'>
         <div className="bg_decoration"></div>
