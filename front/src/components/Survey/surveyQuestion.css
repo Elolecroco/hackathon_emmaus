@@ -1,0 +1,5 @@
+.question_background{
+    width: 70%;
+    background-color: var(--lightest-color);
+    border-radius: 1em;
+}

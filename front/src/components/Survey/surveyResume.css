@@ -1,0 +1,6 @@
+.resume_background{
+    width: 30%;
+    height: 20em;
+    background-color: var(--lightest-color);
+    border-radius: 1em;
+}
