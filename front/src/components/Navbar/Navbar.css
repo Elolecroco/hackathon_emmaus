@@ -1,18 +1,21 @@
 .navbar-container {
-    height: 5em;
+    height: 5.5em;
     width: 100%;
+/*     position: fixed;
+    top: 0; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
     background-color: var(--lightest-color);
 }
 
-.logo-container {
+.navbar-container>a {
     width: 15%;
-    height: 6em;
+    height: 7em;
     margin: 0 5em 0 1em ;
 }
 
+.logo-container,
 .logo-container>img {
     width: 100%;
     height: 100%;
@@ -20,7 +23,7 @@
 
 .smartphone-options {
     height: 100%;
-    width: 70%;
+    width: 72%;
     margin-right: 1em;
     display: flex;
     align-items: center;
@@ -31,6 +34,8 @@
     border-bottom: 5px solid transparent;
     display: flex;
     align-items: center;
+    color: var(--dark-color);
+    cursor: pointer;
 }
 .smartphone-options>p:hover {
     border-bottom: 5px solid var(--highlight-color);
@@ -40,4 +45,6 @@
     height: 2em;
     width: 2em;
     margin-right: 1em;
+    fill: var(--dark-color);
+    cursor: pointer;
 }
