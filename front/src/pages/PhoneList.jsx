@@ -17,7 +17,7 @@ const PhoneList = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5080/api/phones`)
+      .get(`http://localhost:5080/api/history`)
       .then((res) => res.data)
       .then((data) => setPhones(data));
   }, []);

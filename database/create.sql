@@ -3,5 +3,19 @@ CREATE TABLE phones (
     brand VARCHAR(255) NOT NULL,
     model VARCHAR(255) NOT NULL,
     storage INT NOT NULL,
-    ram INT NOT NULL
+    ram INT NOT NULL,
+    screen FLOAT NOT NULL,
+    gsm VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    brand VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    storage INT NOT NULL,
+    ram INT NOT NULL,
+    screen FLOAT NOT NULL,
+    gsm VARCHAR(10) NOT NULL,
+    price INT(10) NOT NULL,
+    rank VARCHAR(10) NOT NULL
 );
