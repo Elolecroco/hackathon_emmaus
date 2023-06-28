@@ -27,3 +27,22 @@
 .categorie{
     color: var( --faded-color);
 }
+
+/* Section 3 */
+
+.select_section_three{
+    display: flex;
+    border: solid 1px black;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    gap: 0.5em;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
