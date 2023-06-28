@@ -1,12 +1,10 @@
 import estimation from '../assets/estimation_illus.png';
 import ajouter from '../assets/ajouter-mobile_illus.png';
-import Navbar from '../components/Navbar/Navbar';
 import './Home.css';
 
 const Home = () => {
     return (
         <div className='home-page'>
-            <Navbar />
             <div className='main-container'>
                 <div className='estimation-container'>
                     <div className='estimation-img-container'>
