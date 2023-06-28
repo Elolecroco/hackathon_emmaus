@@ -70,3 +70,10 @@
   width: 15%;
   text-align: center;
 }
+
+.pageButton {
+  height: 30%;
+  width: 50%;
+  background-color: aqua;
+  color: black;
+}
