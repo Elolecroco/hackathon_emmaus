@@ -1,0 +1,7 @@
+CREATE TABLE phones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    brand VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    storage INT NOT NULL,
+    ram INT NOT NULL
+);
