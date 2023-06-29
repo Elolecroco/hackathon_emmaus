@@ -41,7 +41,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked::before {
-     
+    background-color: var(--highlight-color)
 }
 
 /* SECTION 1 */
@@ -84,7 +84,7 @@ input[type="radio"]:checked::before {
 
 .select_section_three{
     display: flex;
-    border: solid 1px var(--dark-color);
+    border: solid 1px var(--faded-color);
     padding: 1em;
     margin-bottom: 1em;
     gap: 0.5em;
@@ -109,7 +109,7 @@ input[type="radio"]:checked::before {
 
 /* section 5 */ 
 
-/* ul{
+ul{
     margin-top: 1em ;
     margin-bottom: 2em;
     list-style-type: none;
@@ -134,7 +134,7 @@ li{
     gap: 1em;
     width: 100%;
 
-} */
+} 
 
 
 
@@ -203,18 +203,22 @@ li{
 }
 
 button{
-    background-color: var(--faded-color);
+    background-color: var(--highlight-color);
+    border: 2px solid var(--highlight-color);
+    color: var(--lightest-color);
     font-size: 1em;
-    padding: 0.7em;
-    border: none;
+    font-weight: 400;
+    padding: 0.7em 1.5em;   
     border-radius: 1.5em;
+   
  
-
 }
 
 button:hover{
-    background-color: var(--dark-color);
-    color: var(--lightest-color);
+    background-color: var(--lightest-color);
+    border: 2px solid var(--highlight-color);
+    color: var(--highlight-color);
+    
 }
 
 
