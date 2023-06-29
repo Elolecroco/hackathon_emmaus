@@ -125,3 +125,10 @@ VALUES
 INSERT INTO history (brand, model, storage, ram, screen, gsm, price, rank)
 VALUES 
 ('Apple', 'iPhone 12', 64, 4, 6.1, '4G', 50, '2 - C' );
+
+INSERT INTO users (firstname, lastname, email, hashed_password, role)
+VALUES 
+('Gerard', 'MENVUSSA', "g.menvussa@emmaus-connect.fr", "J'aimelepate", "user"),
+('Enora', 'PALTANT', "e.paltant@emmaus-connect.fr", "J'aimelepate", "admin");
+
+

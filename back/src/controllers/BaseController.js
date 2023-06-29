@@ -13,9 +13,9 @@ class BaseController {
     this.model.getAll().then(([results]) => this.sendJson(results));
   }
 
-  getByModel() {
+  getById() {
     this.model
-      .getById(this.req.params.model)
+      .getById(this.req.params.id)
       .then(([results]) => this.sendJson(results));
   }
 

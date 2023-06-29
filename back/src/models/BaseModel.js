@@ -23,16 +23,16 @@ class BaseModel {
       `);
   }
 
-  // getModel(model) {
-  //   return this.db.query(
-  //     `
-  //     SELECT ${this.fields}
-  //     FROM ${this.table}
-  //     ${this.join}
-  //     WHERE ${this.table}.model  = ?`,
-  //     [id]
-  //   );
-  // }
+  getById(id) {
+    return this.db.query(
+      `
+      SELECT ${this.fields}
+      FROM ${this.table}
+      ${this.join} 
+      WHERE ${this.table}.id  = ?`,
+      [id]
+    );
+  }
 
   postItem(reqBody) {
     const paramKeys = Object.keys(reqBody);
