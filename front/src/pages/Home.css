@@ -37,15 +37,16 @@
     width: 100%;
 }
 
-.estimation-container>button,
-.add-container>button {
-    width: 75%;
-    padding: 0.8em;
+.estimation-container>a,
+.add-container>a {
+    width: 65%;
+    padding: 0.5em;
     margin: 0.5em 0 3em 0;
     border: none;
     border-radius: 24px;
     background-color: var(--highlight-color);
     color: var(--bg-color);
+    text-align: center;
 }
 
 .estimation-container>p,
