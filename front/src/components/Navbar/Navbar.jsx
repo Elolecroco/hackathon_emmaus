@@ -4,6 +4,7 @@ import { MdLogout } from 'react-icons/md'
 import emmausLogo from '../../assets/logo_emmaus_connect.svg';
 import './Navbar.css';
 import { useState } from 'react';
+import MenuBurger from '../MenuBurger/MenuBurger';
 
 const Navbar = ({removeToken, token}) => {
 
@@ -38,7 +39,9 @@ const Navbar = ({removeToken, token}) => {
                     {token && token.role === "admin" ? <NavLink to='/phonelist' className={splitLocation[1] === "phonelist" ? "active" : ""}><p>Ajouter un smartphone</p></NavLink> : null}
                 </div>
             </div>
+            <MenuBurger />
         </div>
+        
     )
 }
 

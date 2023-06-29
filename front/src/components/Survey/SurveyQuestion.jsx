@@ -13,6 +13,7 @@ const SurveyQuestion = ({
   selectedModel,
   selectedStorage,
   selectedScreenQuality,
+  phoneRam,
   seeSection1,
   seeSection2,
   seeSection3,
@@ -26,12 +27,13 @@ const SurveyQuestion = ({
   setSelectedStorage,
   setSelectedScreenQuality,
   setUnlockedSim,
-  setScreenState,
+  setPhoneRam,
   setSeeSection1,
   setSeeSection2,
   setSeeSection3,
   setSeeSection4,
   setSeeSection5,
+  setSeeAllInformation
 }) => {
 
   const goTOSection2 = () => {
@@ -70,8 +72,13 @@ const SurveyQuestion = ({
     <div className="question_background">
       {seeSection1 ?  <Section1
         setSelectedBrand={setSelectedBrand}
+        selectedBrand={selectedBrand}
         setSelectedModel={setSelectedModel}
+        selectedModel={selectedModel}
         setSelectedStorage={setSelectedStorage}
+        selectedStorage={selectedStorage}
+        setPhoneRam={setPhoneRam}
+        phoneRam={phoneRam}
         goTOSection2 ={goTOSection2}
       />
       : seeSection2 ?
@@ -81,7 +88,7 @@ const SurveyQuestion = ({
       : seeSection4 ?
         <Section4 setSelectedStructurePhoneQuality={setSelectedStructurePhoneQuality} goTOSection5={goTOSection5} selectedStructurePhoneQuality ={selectedStructurePhoneQuality} />
       : seeSection5 ?
-       <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality}/>
+       <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality} setSeeAllInformation={setSeeAllInformation}/>
       : null
       }
      
