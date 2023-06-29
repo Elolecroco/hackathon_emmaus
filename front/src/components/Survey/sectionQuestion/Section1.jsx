@@ -28,8 +28,6 @@ const Section1 = ({
   });
   
 
-  
-
   useEffect(() => {
     axios
       .get("http://localhost:5080/api/phones")
@@ -45,8 +43,8 @@ const Section1 = ({
     setSelectedPhoneObject(storageAvailable.filter(
       (el) => el.storage === parseInt(selectedValue)
     ));
-  };
 
+  };
 
   const brands = data?.reduce(
     (acc, { brand, model, storage, ram }) => {
@@ -188,8 +186,11 @@ const Section1 = ({
       </div>
 
       <div className="section_list">
-      <div>
-      <select value={selectedPhone} onChange={handleSelectedStorage}>
+      
+      <label htmlFor="memory">
+          Quel est la capacité de stockage du téléphone ?
+      </label>
+      <select className="memory_select_input" name="memory" id="memory" value={selectedPhone} onClick={handleSelectedStorage}>
         {storageAvailable.map((el, index) => (
           <option key={index} value={el.storage}>
             {el.storage}
@@ -197,7 +198,6 @@ const Section1 = ({
         ))}
       </select>
     </div>
-      </div>
 
       <button onClick={goTOSection2}>Continuer</button>
     </div>
