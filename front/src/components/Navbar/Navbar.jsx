@@ -16,7 +16,6 @@ const Navbar = ({removeToken, token}) => {
         setIsMenuLogout(!isMenuLogout)
     }
 
-
     return (
         <div className='navbar-container'>
             <Link to="/">
@@ -29,17 +28,34 @@ const Navbar = ({removeToken, token}) => {
                     <p className='user_fullname'>{token && token.firstname} {token && token.lastname}</p>
                     <PiUser className='user-icon' onClick={openCloseLogoutMenu}/>
                 </div>
-                <div className={isMenuLogout ? "menu_logout" : "menu_logout invisible"} onClick={removeToken}>
-                        <MdLogout className='logout-icon'/>
-                        <p className="logout">logout</p>
+                
+                <div className={isMenuLogout ? "menu_logout" : "menu_logout invisible"}>
+                        <div className="logout_container"  onClick={removeToken}>
+                            <MdLogout className='logout-icon'/>
+                            <p className="logout">logout</p>
+                        </div>
+                        <NavLink to='/minconfig' className={splitLocation[1] === "minconfig" ? "active" : ""}>
+                            <div className="parameters_container">
+                                <MdSettings className='logout_burger-icon'/>
+                                <p className="logout">Paramètres</p>
+                            </div>
+                    </NavLink>
                 </div>
                 <div className='smartphone-options'>
-                    <NavLink to='/phonesurvey' className={splitLocation[1] === "phonesurvey" ? "active" : ""}><p>Estimer un smartphone</p></NavLink>
-                    <NavLink to='/history' className={splitLocation[1] === "history" ? "active" : ""}><p>Nos smartphones</p></NavLink>
-                    {token && token.role === "admin" ? <NavLink to='/phonelist' className={splitLocation[1] === "phonelist" ? "active" : ""}><p>Ajouter un smartphone</p></NavLink> : null}
+                    <NavLink to='/phonesurvey' className={splitLocation[1] === "phonesurvey" ? "active" : ""}>
+                        <p>Estimer un smartphone</p>
+                    </NavLink>
+                    <NavLink to='/history' className={splitLocation[1] === "history" ? "active" : ""}>
+                        <p>Nos smartphones</p>
+                    </NavLink>
+                    {token && token.role === "admin" 
+                        ? <NavLink to='/phonelist' className={splitLocation[1] === "phonelist" ? "active" : ""}>
+                            <p>Ajouter un smartphone</p>
+                        </NavLink> 
+                        : null}
                 </div>
             </div>
-            <MenuBurger />
+            <MenuBurger removeToken={removeToken} token={token}/>
         </div>
         
     )
