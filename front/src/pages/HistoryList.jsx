@@ -23,7 +23,7 @@ const HistoryList = () => {
   }, []);
 
   useEffect(() => {
-    const calculatedTotalPages = Math.ceil(phones / resultsPerPage);
+    const calculatedTotalPages = Math.ceil(phones.length / resultsPerPage);
     setTotalPages(calculatedTotalPages);
   }, [phones.length, resultsPerPage]);
 

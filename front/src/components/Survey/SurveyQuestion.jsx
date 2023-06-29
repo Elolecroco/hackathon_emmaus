@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./surveyQuestion.css";
-import Section1 from "./sectionQuestion/section1";
+import Section1 from "./sectionQuestion/Section1";
 import Section2 from "./sectionQuestion/Section2";
 import Section3 from "./sectionQuestion/Section3";
 import Section4 from "./sectionQuestion/Section4";
@@ -30,12 +30,9 @@ const SurveyQuestion = ({
   setSeeSection2,
   setSeeSection3,
   setSeeSection4,
-  setSeeSection5
+  setSeeSection5,
 }) => {
   const [phoneData, setPhoneData] = useState(["lalalal", "lala", "la"]);
-  
-
- 
 
   const goTOSection2 = () => {
     setSeeSection1(false);
@@ -71,28 +68,33 @@ const SurveyQuestion = ({
 
   return (
     <div className="question_background">
-      {seeSection1 ?  <Section1
-        selectedBrand={selectedBrand}
-        selectedModel={selectedModel}
-        selectedStorage={selectedStorage}
-        setSelectedBrand={setSelectedBrand}
-        setSelectedModel={setSelectedModel}
-        setSelectedStorage={setSelectedStorage}
-        phoneData ={phoneData}
-        goTOSection2 ={goTOSection2}
-      />
-      : seeSection2 ?
-       <Section2 setUnlockedSim={setUnlockedSim} goTOSection3={goTOSection3} />
-      : seeSection3 ? 
-       <Section3 goTOSection4={goTOSection4} selectedScreenQuality={selectedScreenQuality} setSelectedScreenQuality={setSelectedScreenQuality} />
-      : seeSection4 ?
+      {seeSection1 ? (
+        <Section1
+          selectedBrand={selectedBrand}
+          selectedModel={selectedModel}
+          selectedStorage={selectedStorage}
+          setSelectedBrand={setSelectedBrand}
+          setSelectedModel={setSelectedModel}
+          setSelectedStorage={setSelectedStorage}
+          phoneData={phoneData}
+          goTOSection2={goTOSection2}
+        />
+      ) : seeSection2 ? (
+        <Section2 setUnlockedSim={setUnlockedSim} goTOSection3={goTOSection3} />
+      ) : seeSection3 ? (
+        <Section3
+          goTOSection4={goTOSection4}
+          selectedScreenQuality={selectedScreenQuality}
+          setSelectedScreenQuality={setSelectedScreenQuality}
+        />
+      ) : seeSection4 ? (
         <Section4 setScreenState={setScreenState} goTOSection5={goTOSection5} />
-      : seeSection5 ?
-       <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality}/>
-      : null
-      }
-     
-     
+      ) : seeSection5 ? (
+        <Section5
+          setSelectedGlobalQuality={setSelectedGlobalQuality}
+          selectedGlobalQuality={selectedGlobalQuality}
+        />
+      ) : null}
     </div>
   );
 };
