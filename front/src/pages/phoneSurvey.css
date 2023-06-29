@@ -1,13 +1,13 @@
+
 .survey_background{
     background-color: var(--bg-color);
     min-height: 90vh;
     padding: 4em;
 }
 
-.survey_content{
-    display: flex;
-    gap: 1em;
-
+.survey_content {
+  display: flex;
+  gap: 1em;
 }
 
 @media (max-width: 860px) {

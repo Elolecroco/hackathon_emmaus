@@ -31,12 +31,9 @@ const SurveyQuestion = ({
   setSeeSection2,
   setSeeSection3,
   setSeeSection4,
-  setSeeSection5
+  setSeeSection5,
 }) => {
   const [phoneData, setPhoneData] = useState(["lalalal", "lala", "la"]);
-  
-
- 
 
   const goTOSection2 = () => {
     setSeeSection1(false);
@@ -92,7 +89,6 @@ const SurveyQuestion = ({
        <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality}/>
       : null
       }
-     
      
     </div>
   );

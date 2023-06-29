@@ -1,0 +1,124 @@
+
+.add_phone_page{
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+}
+
+.bg_decoration{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    background-color: var(--dark-color);
+}
+
+.add_phone_box{
+    margin: 4em 0;
+    width:90%;
+    background-color: var(--lightest-color);
+    border-radius: 1em;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.image_bloc{
+    width: 40%;
+    padding: 2.5em 0 2.5em 0;
+}
+
+.image_bloc img{
+    width: 100%;
+    position: relative;
+    left: -8%;   
+}
+
+.content_bloc{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2.5em 2em 2.5em 0;
+}
+
+.content_bloc h1{
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: .25em;
+}
+
+.content_bloc .subtitle{
+    color: var(--faded-color);
+    font-weight: 300;
+    font-size: .95em;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5em;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.field_split{
+    display: flex;
+    width: 100%;
+    gap: 1.5em;
+    position: relative;
+}
+
+label{
+    margin-bottom: .8em;
+}
+
+input{
+    padding: .5em 1.5em;
+    border: none;
+    background-color: var(--bg-color);
+    font-weight: 300;
+    font-family: var(--main-font);
+}
+
+::placeholder{
+    color: var(--faded-color);
+    
+}  
+
+
+.suggestions{
+    position: absolute;
+    top: 4.3em;
+    border-radius: .15em;
+    background-color: var(--bg-color);
+    padding: 1em;
+    z-index: 2;
+    filter: drop-shadow(0 .15em 0.1em #0000002b);
+}
+
+.suggestions li{
+    margin: .25em 0;
+
+}
+
+
+button{
+    background-color: var(--dark-color);
+    color: var(--lightest-color);
+    padding: .7em 1.5em;
+    border: none;
+    border-radius: 1.5em;
+    margin-top: 1em;
+    width: fit-content;
+}
