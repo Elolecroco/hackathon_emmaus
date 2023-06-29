@@ -4,147 +4,145 @@ import { HiPencil, HiCheck } from 'react-icons/hi';
 import './minConfig.css';
 
 const MinConfig = () => {
+    
+    
+    const [isRamOpen, setIsRamOpen] = useState(false);
+    
+    const [isMemoryOpen, setIsMemoryOpen] = useState(false);
+    
+    const [isScreenHeightOpen, setIsScreenHeightOpen] = useState(false);
+    
+    const [isGsmOpen, setIsGsmOpen] = useState(false);
+    
+    const [data, setData] = useState({})
+
+    const onChangeInput = (e) => {
+        let key = e.target.name;
+        let value = e.target.value;
+
+        if (key === 'gsm') {
+            setData({...data, 
+                [key]: value
+            })
+        } else {
+            setData({...data,
+            [key]: parseInt(value)
+            })
+        }
+
+    }
+
+    console.log(data);
 
     useEffect(() => {
         axios.get('http://localhost:5080/api/config')
-    }, [])
-
-    const [minRam, setMinRam] = useState("2");
-    const [newMinRam, setNewMinRam] = useState("")
-    const [isRamOpen, setIsRamOpen] = useState(false);
-
-    const [minMemory, setMinMemory] = useState("16");
-    const [newMinMemory, setNewMinMemory] = useState("")
-    const [isMemoryOpen, setIsMemoryOpen] = useState(false);
-
-    const [minScreenHeight, setMinScreenHeight] = useState("4");
-    const [newMinScreenHeight, setNewMinScreenHeight] = useState("")
-    const [isScreenHeightOpen, setIsScreenHeightOpen] = useState(false);
-
-    const [minGsm, setMinGsm] = useState("4");
-    const [newMinGsm, setNewMinGsm] = useState("")
-    const [isGsmOpen, setIsGsmOpen] = useState(false);
+            .then(res => {
+                setData(res.data[0])
+            })
+            .catch(err => console.error(err))
+        }, [])
 
     const handleRam = () => {
         setIsRamOpen(!isRamOpen)
-    }
-    const updateRam = () => {
-        if (newMinRam !== "") {
-            setMinRam(newMinRam);
-        }
-        setIsRamOpen(!isRamOpen);
     }
 
     const handleMemory = () => {
         setIsMemoryOpen(!isMemoryOpen)
     }
-    const updateMemory = () => {
-        if (newMinMemory !== "") {
-            setMinMemory(newMinMemory);
-        }
-        setIsMemoryOpen(!isMemoryOpen);
-    }
 
     const handleScreenHeight = () => {
         setIsScreenHeightOpen(!isScreenHeightOpen)
-    }
-    const updateScreenHeight = () => {
-        if (newMinScreenHeight !== "") {
-            setMinScreenHeight(newMinScreenHeight);
-        }
-        setIsScreenHeightOpen(!isScreenHeightOpen);
     }
 
     const handleGsm = () => {
         setIsGsmOpen(!isGsmOpen)
     }
-    const updateGsm = () => {
-        if (newMinGsm !== "") {
-            setMinGsm(newMinGsm);
-        }
-        setIsGsmOpen(!isGsmOpen);
-    }
 
+    const submitChanges = (e) => {
+        e.preventDefault();
+        axios
+            .put("http://localhost:5080/api/config/update", data)
+            .then((res) => res)
+            .catch((error) => console.error(error));
+    } 
 
     return (
         <div className='min-config-page'>
             <h1>Configuration minimum acceptée</h1>
                 <div className='min-config-section'>
+                    
                     <div className='min-config-container'>
                         <h4>RAM minimum</h4>
-                        {isRamOpen === false ? <p>{minRam} GO</p> :
+                        {isRamOpen === false ? <p>{data.ram} GO</p> :
                              <input 
                                 type='number' 
-                                id='minRam' name='minRam' 
-                                placeholder={`${minRam} GO`} 
-                                min={minRam} 
-                                value={newMinRam}
-                                onChange={(e) => setNewMinRam(e.target.value)}
+                                id='minRam' name='ram' 
+                                placeholder={`${data.ram} GO`} 
+                                min={data.ram} 
+                                onChange={onChangeInput}
                             /> 
                         }
                         {isRamOpen === false ? (
                             <HiPencil className='modif-min-config-icon' onClick={handleRam} />
                         ) : (
-                            <HiCheck className='modif-min-config-icon' onClick={updateRam} />
+                            <HiCheck className='modif-min-config-icon' onClick={handleRam} />
                         )}
                     </div>
 
                     <div className='min-config-container'>
                         <h4>Mémoire minimum</h4>
-                        {isMemoryOpen === false ? <p>{minMemory} GO</p> :
+                        {isMemoryOpen === false ? <p>{data.storage} GO</p> :
                              <input 
                                 type='number' 
-                                id='minMemory' name='minMemory' 
-                                placeholder={`${minMemory} GO`} 
-                                min={minMemory} 
-                                value={newMinMemory}
-                                onChange={(e) => setNewMinMemory(e.target.value)}
+                                id='minMemory' name='storage' 
+                                placeholder={`${data.storage} GO`} 
+                                min={data.storage} 
+                                onChange={onChangeInput}
                             /> 
                         }
                         {isMemoryOpen === false ? (
                             <HiPencil className='modif-min-config-icon' onClick={handleMemory} />
                         ) : (
-                            <HiCheck className='modif-min-config-icon' onClick={updateMemory} />
+                            <HiCheck className='modif-min-config-icon' onClick={handleMemory} />
                         )}
                     </div>
 
                     <div className='min-config-container'>
                         <h4>Taille écran minimum</h4>
-                        {isScreenHeightOpen === false ? <p>{minScreenHeight} Pouces</p> :
+                        {isScreenHeightOpen === false ? <p>{data.screen} Pouces</p> :
                              <input 
                                 type='number' 
-                                id='minScreenHeight' name='minScreenHeight' 
-                                placeholder={`${minScreenHeight} P`} 
-                                min={minScreenHeight} 
-                                value={newMinScreenHeight}
-                                onChange={(e) => setNewMinScreenHeight(e.target.value)}
+                                id='minScreenHeight' name='screen' 
+                                placeholder={`${data.screen} P`} 
+                                min={data.screen} 
+                                onChange={onChangeInput}
                             /> 
                         }
                         {isScreenHeightOpen === false ? (
                             <HiPencil className='modif-min-config-icon' onClick={handleScreenHeight} />
                         ) : (
-                            <HiCheck className='modif-min-config-icon' onClick={updateScreenHeight} />
+                            <HiCheck className='modif-min-config-icon' onClick={handleScreenHeight} />
                         )}
                     </div>
 
                     <div className='min-config-container'>
                         <h4>Réseau minimum</h4>
-                        {isGsmOpen === false ? <p>{minGsm}G</p> :
+                        {isGsmOpen === false ? <p>{data.gsm}</p> :
                              <input 
-                                type='number' 
-                                id='minGsm' name='minGsm' 
-                                placeholder={`${minGsm}G`} 
-                                min={minGsm} 
-                                value={newMinGsm}
-                                onChange={(e) => setNewMinGsm(e.target.value)}
+                                type='text' 
+                                id='minGsm' name='gsm' 
+                                placeholder={data.gsm}
+                                onChange={onChangeInput}
                             /> 
                         }
                         {isGsmOpen === false ? (
                             <HiPencil className='modif-min-config-icon' onClick={handleGsm} />
                         ) : (
-                            <HiCheck className='modif-min-config-icon' onClick={updateGsm} />
+                            <HiCheck className='modif-min-config-icon' onClick={handleGsm} />
                         )}
                     </div>
+
+                    <button onClick={submitChanges}>Valider les changements</button>
                 </div>           
         </div>
     )

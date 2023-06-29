@@ -1,9 +1,12 @@
 .min-config-page {
+    padding: 4em 0;
     width: 100%;
-    height: 30em;
+    height: 100%;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: var(--bg-color);
 }
 .min-config-page>h1 {
     margin: 2em;
@@ -11,12 +14,14 @@
 }
 
 .min-config-section {
-    height: 10em;
     width: 80%;
     display: flex;
     align-items: center;    
     justify-content: center;
     flex-direction: column;
+}
+.min-config-section>button {
+    margin: 3em 0;
 }
 
 .min-config-container {
@@ -50,5 +55,6 @@
     text-align: right;
     font-family: var(--main-font);
     font-size: 1em;
-    }
+}
+
 

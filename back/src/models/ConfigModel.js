@@ -1,4 +1,5 @@
 const BaseModel = require("./BaseModel");
+const { db } = require("../config");
 
 class ConfigModel extends BaseModel {
   constructor({ fields }) {
