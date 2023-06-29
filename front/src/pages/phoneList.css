@@ -2,7 +2,6 @@
   background-color: var(--bg-color);
   display: flex;
   justify-content: center;
-  height: 100vh;
 }
 
 .list_background h1 {

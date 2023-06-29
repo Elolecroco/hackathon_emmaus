@@ -233,6 +233,11 @@ button:hover{
 @media (max-width: 860px) {
     .question_background{
         width: 100%;
-
+    }
+    #section1_brand,
+    #section1_model,
+    #section1_storage,
+    .memory_select_input {
+        width: 100%;
     }
 }

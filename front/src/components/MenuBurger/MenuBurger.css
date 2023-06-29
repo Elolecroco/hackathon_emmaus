@@ -59,6 +59,7 @@ border: 1px solid var(--faded-color);
 .logout_burger{
   display: flex;
   cursor: pointer;
+  gap: .7em;
 }
 
 /* ------------ Media queries ------------ */
