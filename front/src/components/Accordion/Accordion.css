@@ -1,0 +1,25 @@
+.AccordionDone {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.accordion {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.accordion-title {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordion-content {
+    padding: 1rem;
+}
