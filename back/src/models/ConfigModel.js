@@ -47,7 +47,7 @@ class ConfigModel extends BaseModel {
 
     sql2 = removeLastChar(sql2);
 
-    return db.query(`${sql1} ${sql2} WHERE ${this.table}.id = 1 `, [
+    return this.db.query(`${sql1} ${sql2} WHERE ${this.table}.id = 1 `, [
       ...paramVals,
     ]);
   }
