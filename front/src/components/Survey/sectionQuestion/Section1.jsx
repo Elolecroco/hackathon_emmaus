@@ -37,12 +37,14 @@ const Section1 = ({
       .catch((err) => console.error(err));
   }, []);
 
+
   useEffect(() => {
     axios
       .get("http://localhost:5080/api/config")
       .then((res) => setMinConfig(res.data))
       .catch((err) => console.error(err));
   }, []);
+
 
   const [selectedPhone, setSelectedPhone] = useState();
 
@@ -135,6 +137,7 @@ const Section1 = ({
 
   const modelAvailable = data.filter((el) => el.brand === selectedBrand);
   const storageAvailable = data.filter((el) => el.model === selectedModel);
+
 
   console.log(minConfig);
 
