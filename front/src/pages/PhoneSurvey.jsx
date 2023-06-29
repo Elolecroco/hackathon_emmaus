@@ -12,7 +12,7 @@ const PhoneSurvey = () => {
   const [selectedScreenQuality, setSelectedScreenQuality] = useState("");
   const [selectedGlobalQuality, setSelectedGlobalQuality] = useState("")
   const [unlockedSim, setUnlockedSim] = useState(null)
-  const [screenState, setScreenState] = useState(null)
+  const [selectedStructurePhoneQuality, setSelectedStructurePhoneQuality] = useState("")
   const [seeSection1, setSeeSection1] = useState(true);
   const [seeSection2, setSeeSection2] = useState(false);
   const [seeSection3, setSeeSection3] = useState(false);
@@ -45,7 +45,7 @@ const PhoneSurvey = () => {
             selectedScreenQuality={selectedScreenQuality}
             selectedGlobalQuality={selectedGlobalQuality}
             unlockedSim={unlockedSim}
-            screenState={screenState}
+            selectedStructurePhoneQuality={selectedStructurePhoneQuality}
           />
           <SurveyQuestion
             selectedBrand={selectedBrand}
@@ -53,15 +53,14 @@ const PhoneSurvey = () => {
             selectedStorage={selectedStorage}
             selectedScreenQuality={selectedScreenQuality}
             selectedGlobalQuality ={selectedGlobalQuality}
+            selectedStructurePhoneQuality={selectedStructurePhoneQuality}
+            setSelectedStructurePhoneQuality ={setSelectedStructurePhoneQuality}
             setSelectedGlobalQuality ={setSelectedGlobalQuality}
             setSelectedBrand={setSelectedBrand}
             setSelectedModel={setSelectedModel}
             setSelectedStorage={setSelectedStorage}
             setSelectedScreenQuality={setSelectedScreenQuality}
-            unlockedSim={unlockedSim}
-            screenState={screenState}
             setUnlockedSim={setUnlockedSim}
-            setScreenState={setScreenState}
             setSeeSection1={setSeeSection1}
             setSeeSection2={setSeeSection2}
             setSeeSection3={setSeeSection3}

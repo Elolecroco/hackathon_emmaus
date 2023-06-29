@@ -1,0 +1,81 @@
+.list_background {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding: 4em;
+}
+
+.list_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  background-color: var(--lightest-color);
+  border-radius: 1.5em;
+  gap: 4em;
+  padding: 4em;
+}
+
+.top {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  justify-content: space-between;
+}
+
+.top button {
+  background-color: var(--dark-color);
+  color: var(--lightest-color);
+  font-weight: 600;
+  height: fit-content;
+  letter-spacing: 0.15em;
+  padding: 0.7em 1.5em;
+  border-radius: 1.5em;
+}
+
+.table {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.line {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.header {
+  background-color: var(--highlight-color);
+  color: var(--lightest-color);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.line:nth-child(odd) {
+  background-color: var(--bg-color);
+}
+
+.brand {
+  width: 30%;
+}
+
+.model {
+  width: 40%;
+}
+
+.storage,
+.ram {
+  width: 15%;
+  text-align: center;
+}
+
+.navButtons {
+  padding: 2em;
+  height: 10%;
+}
