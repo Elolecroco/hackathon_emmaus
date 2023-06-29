@@ -1,0 +1,54 @@
+.menu-burger {
+  position: relative;
+}
+
+.menu-burger__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  padding: 0;
+}
+
+.menu-burger__button:hover {
+  border: none;
+}
+
+
+
+.menu-burger__bar {
+  background-color: #000;
+  height: 3px;
+  width: 100%;
+}
+
+.menu-burger__list {
+  background-color: var(--lightest-color);
+  position: absolute;
+  flex-direction: column;
+  right: 0;
+  list-style-type: none;
+  padding: 3em;
+  margin: 10px 0;
+  width: 17em;
+  border-radius: 1.5em;
+}
+
+.menu-burger__item {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 860px) {
+  .menu-burger {
+    display: none;
+  }
+
+  .menu-burger__list {
+    display: none;
+  }
+}
