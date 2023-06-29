@@ -38,7 +38,7 @@ const verifyPassword = (req, res, next) => {
     res.sendStatus(404);
   } else {
     delete req.user.hashed_password;
-    next();
+    res.status(200).json(req.user);
   }
 };
 
