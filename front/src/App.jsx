@@ -11,47 +11,50 @@ import AddPhone from './pages/AddPhone';
 import Footer from './components/Footer/Footer';
 import PhoneList from "./pages/PhoneList";
 import HistoryList from "./pages/HistoryList";
+import AccordionDone from "./components/Accordion/Accordion";
 import Login from "./pages/Login";
 import MinConfig from "./pages/MinConfig";
 import tokenStorage from "./hooks/tokenStorage";
 
 
 function App() {
-  
+
   const { removeToken, setToken, token } = tokenStorage();
 
 
 
-  return !token 
-  ?(
-    <Router>
-      <Routes>
-        <Route path="*" element={<Navigate to="/login"/>} />
-        <Route path="/login" element={<Login setToken={setToken} />} />
-      </Routes>
-    </Router>
-  )
-  :(
-    <Router>
-      <Navbar removeToken={removeToken} token={token}/>
-      <Routes>
-      <Route path="*" element={<Navigate to="/"/>} />
-        <Route path="/" element={<Home />} />
-        <Route path="/phonesurvey" element={<PhoneSurvey />} />
-        {token && token.role === 'admin'
-        ?  <Route path="/addphone" element={<AddPhone/>} />
-        : null }
-        {token && token.role === 'admin'
-        ?  <Route path="/phonelist" element={<PhoneList />} />
-        : null}
-        {token && token.role === 'admin'
-        ?  <Route path="/minconfig" element={<MinConfig />} />
-        : null}
-        <Route path="/history" element={<HistoryList />} />
-      </Routes>
-      <Footer />
-    </Router>
-  )
+  return !token
+    ? (
+      <Router>
+        <Routes>
+          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<Login setToken={setToken} />} />
+        </Routes>
+      </Router>
+    )
+    : (
+      <Router>
+        <Navbar removeToken={removeToken} token={token} />
+        <Routes>
+          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/phonesurvey" element={<PhoneSurvey />} />
+
+          {token && token.role === 'admin'
+            ? <Route path="/addphone" element={<AddPhone />} />
+            : null}
+          {token && token.role === 'admin'
+            ? <Route path="/phonelist" element={<PhoneList />} />
+            : null}
+          {token && token.role === 'admin'
+            ? <Route path="/minconfig" element={<MinConfig />} />
+            : null}
+          <Route path="/history" element={<HistoryList />} />
+          <Route path="/faq" element={<AccordionDone />} />
+        </Routes>
+        <Footer />
+      </Router>
+    )
 }
 
 export default App;
