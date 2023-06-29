@@ -68,9 +68,6 @@ const SurveyQuestion = ({
   return (
     <div className="question_background">
       {seeSection1 ?  <Section1
-        selectedBrand={selectedBrand}
-        selectedModel={selectedModel}
-        selectedStorage={selectedStorage}
         setSelectedBrand={setSelectedBrand}
         setSelectedModel={setSelectedModel}
         setSelectedStorage={setSelectedStorage}

@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import '../surveyQuestion.css';
 
 const Section1 = ({
-  selectedBrand,
-  selectedModel,
-  selectedStorage,
   setSelectedBrand,
   setSelectedModel,
   setSelectedStorage,
   goTOSection2
 }) => {
+
   const [data, setData] = useState([]);
   const [phoneData, setPhoneData] = useState({
     brand: "",
@@ -53,7 +52,14 @@ const Section1 = ({
         values: brands[key].filter(el => el.toString().toLowerCase().startsWith(value.toLowerCase())),
       });
     }
-    setPhoneData({ ...phoneData, [key]: value });
+    
+    if (key === "brand") {
+      setPhoneData({ ...phoneData, brand: value, model: "" });
+      setSelectedBrand(value);
+      setSelectedModel("");
+    } else {
+      setPhoneData({ ...phoneData, [key]: value });
+    }
   };
 
   const selectSuggestion = (value) => {
@@ -73,6 +79,7 @@ const Section1 = ({
 
   return (
     <div className="question_section">
+
       <div className="section_list">
         <label htmlFor="section1_brand">Quelle est la marque du téléphone ?</label>
         <input
@@ -114,7 +121,7 @@ const Section1 = ({
       </div>
 
       <div className="section_list">
-        <label htmlFor="section1_storage">Quelle est le stockage du téléphone ?</label>
+        <label htmlFor="section1_storage">Quel est le stockage du téléphone ?</label>
         <input
           type="number"
           name="storage"
