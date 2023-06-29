@@ -7,6 +7,7 @@
   --dark-color: #272251;
   --highlight-color: #E65A70;
   --faded-color: #D6D6ED;
+  --faded-color-2: #a4a4bf;
   --main-font: 'Urbanist', sans-serif;
 }
 
@@ -21,7 +22,6 @@
 body {
   width: 100%;
   height: 100%;
-  padding-top: 5.5em;
   border-color: var(--bg-color);
   display: flex;
   align-items: center;
