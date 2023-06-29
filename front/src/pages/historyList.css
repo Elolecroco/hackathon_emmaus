@@ -2,8 +2,6 @@
   background-color: var(--bg-color);
   display: flex;
   justify-content: center;
-  height: 100vh;
-  padding: 4em;
 }
 
 .history_background h1 {
@@ -20,8 +18,8 @@
   background-color: var(--lightest-color);
   border-radius: 1.5em;
   padding: 4em;
-  margin: 4em 0;
   gap: 1em;
+  margin: 4em 0;
 }
 
 .history_list {
@@ -82,4 +80,12 @@
 .history_price {
   width: 10%;
   text-align: center;
+}
+
+.navButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 2em 0 0 0;
 }
