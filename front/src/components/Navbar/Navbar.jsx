@@ -3,7 +3,7 @@ import { PiUser } from 'react-icons/pi'
 import { MdLogout, MdSettings } from 'react-icons/md'
 import emmausLogo from '../../assets/logo_emmaus_connect.svg';
 import './Navbar.css';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import MenuBurger from '../MenuBurger/MenuBurger';
 
 const Navbar = ({removeToken, token}) => {
@@ -11,10 +11,25 @@ const Navbar = ({removeToken, token}) => {
     const {pathname} = useLocation();
     const splitLocation = pathname.split('/');
     const [isMenuLogout, setIsMenuLogout] = useState(false);
+    const closeMenuRef = useRef(null);
 
-    const openCloseLogoutMenu = () =>{
+    const openCloseLogoutMenu = (e) =>{
+        e.stopPropagation();
         setIsMenuLogout(!isMenuLogout)
     }
+
+    useEffect(() => {
+        const handleOutsideClick = (e) => {
+          if (closeMenuRef.current && !closeMenuRef.current.contains(e.target)) {
+            setIsMenuLogout(false);
+          }
+        };
+        document.addEventListener('click', handleOutsideClick);
+
+        return () => {
+          document.removeEventListener('click', handleOutsideClick);
+        };
+    }, []);    
 
     return (
         <div className='navbar-container'>
@@ -26,10 +41,10 @@ const Navbar = ({removeToken, token}) => {
             <div className="menu_entries">
                 <div className="user_profile">
                     <p className='user_fullname'>{token && token.firstname} {token && token.lastname}</p>
-                    <PiUser className='user-icon' onClick={openCloseLogoutMenu}/>
+                    <PiUser className='user-icon' onClick={openCloseLogoutMenu} />
                 </div>
                 
-                <div className={isMenuLogout ? "menu_logout" : "menu_logout invisible"}>
+                <div className={isMenuLogout ? 'menu_logout' : 'menu_logout invisible'} ref={closeMenuRef}>
                         <div className="logout_container"  onClick={removeToken}>
                             <MdLogout className='logout-icon'/>
                             <p className="logout">Se déconnecter</p>
@@ -38,7 +53,7 @@ const Navbar = ({removeToken, token}) => {
                         ? <NavLink to='/minconfig' className={splitLocation[1] === "minconfig" ? "active" : ""}>
                             <div className="parameters_container">
                                 <MdSettings className='logout_burger-icon'/>
-                                <p className="logout">Paramètres</p>
+                                <p className="logout" onClick={openCloseLogoutMenu}>Paramètres</p>
                             </div>
                         </NavLink>
                         : null}
