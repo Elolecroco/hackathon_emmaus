@@ -47,11 +47,8 @@ const SurveyAllInformation = ({
         navigate('/');
         confetti()
       }})
-    
-    console.log(newPhone)
   }
 
-  console.log(phoneRam)
   return (
     <div className="background_blur_resume_survey">
       <div className="background_survey_phone">

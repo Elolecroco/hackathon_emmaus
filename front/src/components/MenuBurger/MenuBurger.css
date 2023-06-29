@@ -31,10 +31,10 @@
   right: 0;
   list-style-type: none;
   padding: 2.5em;
-  /* margin: 10px 0; */
   width: 17em;
   border-radius: 1.5em;
   filter: drop-shadow(0 .15em 0.1em #0000002b);
+  z-index: 100;
 }
 
 .menu-burger__item {
@@ -63,7 +63,7 @@ border: 1px solid var(--faded-color);
 
 /* ------------ Media queries ------------ */
 
-@media screen and (min-width: 860px) {
+@media screen and (min-width: 861px) {
   .menu-burger {
     display: none;
   }
