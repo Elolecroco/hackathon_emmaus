@@ -32,7 +32,6 @@ const PhoneSurvey = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="survey_background">
         <SurveyState
           setSeeSection1={setSeeSection1}

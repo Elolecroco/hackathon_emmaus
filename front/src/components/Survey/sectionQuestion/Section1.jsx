@@ -26,9 +26,6 @@ const Section1 = ({
     name: "",
     values: [],
   });
-  
-
-  
 
   useEffect(() => {
     axios
@@ -37,16 +34,15 @@ const Section1 = ({
       .catch((err) => console.error(err));
   }, []);
 
-  const [selectedPhone, setSelectedPhone] = useState()
+  const [selectedPhone, setSelectedPhone] = useState();
 
   const handleSelectedStorage = (event) => {
     const selectedValue = event.target.value;
     setSelectedPhone(selectedValue);
-    setSelectedPhoneObject(storageAvailable.filter(
-      (el) => el.storage === parseInt(selectedValue)
-    ));
+    setSelectedPhoneObject(
+      storageAvailable.filter((el) => el.storage === parseInt(selectedValue))
+    );
   };
-
 
   const brands = data?.reduce(
     (acc, { brand, model, storage, ram }) => {
@@ -127,15 +123,8 @@ const Section1 = ({
     }
   };
 
-
-  
-
   const modelAvailable = data.filter((el) => el.brand === selectedBrand);
   const storageAvailable = data.filter((el) => el.model === selectedModel);
-
-  
-
-
 
   return (
     <div className="question_section">
@@ -188,15 +177,15 @@ const Section1 = ({
       </div>
 
       <div className="section_list">
-      <div>
-      <select value={selectedPhone} onChange={handleSelectedStorage}>
-        {storageAvailable.map((el, index) => (
-          <option key={index} value={el.storage}>
-            {el.storage}
-          </option>
-        ))}
-      </select>
-    </div>
+        <div>
+          <select value={selectedPhone} onChange={handleSelectedStorage}>
+            {storageAvailable.map((el, index) => (
+              <option key={index} value={el.storage}>
+                {el.storage}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <button onClick={goTOSection2}>Continuer</button>
