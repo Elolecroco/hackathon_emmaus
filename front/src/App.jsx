@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import PhoneList from "./pages/PhoneList";
 import HistoryList from "./pages/HistoryList";
 import Login from "./pages/Login";
+import MinConfig from "./pages/MinConfig";
 import tokenStorage from "./hooks/tokenStorage";
 
 
@@ -42,6 +43,9 @@ function App() {
         : null }
         {token && token.role === 'admin'
         ?  <Route path="/phonelist" element={<PhoneList />} />
+        : null}
+        {token && token.role === 'admin'
+        ?  <Route path="/minconfig" element={<MinConfig />} />
         : null}
         <Route path="/history" element={<HistoryList />} />
       </Routes>
