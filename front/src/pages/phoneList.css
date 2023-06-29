@@ -6,6 +6,12 @@
   padding: 4em;
 }
 
+.list_background h1{
+  font-weight: 600;
+  font-size: 1.7em;
+  margin-bottom: .25em;
+}
+
 .list_content {
   display: flex;
   flex-direction: column;
@@ -25,10 +31,9 @@
   justify-content: space-between;
 }
 
-.top button {
+.top a {
   background-color: var(--dark-color);
   color: var(--lightest-color);
-  font-weight: 600;
   height: fit-content;
   letter-spacing: 0.15em;
   padding: 0.7em 1.5em;
