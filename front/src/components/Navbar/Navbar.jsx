@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { PiUser } from 'react-icons/pi'
-import { MdLogout } from 'react-icons/md'
+import { MdLogout, MdSettings } from 'react-icons/md'
 import emmausLogo from '../../assets/logo_emmaus_connect.svg';
 import './Navbar.css';
 import { useState } from 'react';
