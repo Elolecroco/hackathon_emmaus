@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-//import components
-import Navbar from '../components/Navbar/Navbar'
 //import css
 import './addPhone.css'
 //import assets
@@ -184,7 +182,7 @@ const AddPhone = () => {
                             </div>
                             <div className="field">
                                 <label htmlFor="gsm">Réseau</label>
-                                <input type="text" name="gsm" id="gsm" required placeholder='Réseau' onChange={inputChange}/>
+                                <input type="text" name="gsm" id="gsm" required placeholder='Réseau' value={newPhone.gsm} onChange={inputChange}/>
                                 {suggestions.values.length !== 0 && suggestions.name === "gsm"
                                     ?<ul className="suggestions">
                                         {suggestions.values.map((el, i) => (

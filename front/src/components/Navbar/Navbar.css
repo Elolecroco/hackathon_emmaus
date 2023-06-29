@@ -7,11 +7,7 @@
     align-items: center;
     justify-content: flex-start;
     background-color: var(--lightest-color);
-<<<<<<< HEAD
-    z-index: 10;
-=======
     z-index: 100;
->>>>>>> dev
 }
 
 .navbar-container>a {

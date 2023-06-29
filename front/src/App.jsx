@@ -16,29 +16,17 @@ import HistoryList from "./pages/HistoryList";
 function App() {
   return (
     <Router>
-<<<<<<< HEAD
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/phonesurvey' element={<PhoneSurvey/>} />
-        <Route path='/addphone' element={<AddPhone/>} />
-      </Routes>
-      <Footer />
-    </Router>
-
-  )
-=======
-    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/phonesurvey" element={<PhoneSurvey />} />
+        <Route path="/addphone" element={<AddPhone/>} />
         <Route path="/phonelist" element={<PhoneList />} />
         <Route path="/history" element={<HistoryList />} />
       </Routes>
       <Footer />
     </Router>
   );
->>>>>>> dev
 }
 
 export default App;
