@@ -2,6 +2,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { PiUser } from 'react-icons/pi'
 import emmausLogo from '../../assets/logo_emmaus_connect.svg';
 import './Navbar.css';
+import MenuBurger from '../MenuBurger/MenuBurger';
 
 const Navbar = () => {
 
@@ -21,7 +22,9 @@ const Navbar = () => {
                 <NavLink to='/phonelist' className={splitLocation[1] === "phonelist" ? "active" : ""}><p>Ajouter un smartphone</p></NavLink>
             </div>
             <PiUser className='user-icon'/>
+            <MenuBurger />
         </div>
+        
     )
 }
 
