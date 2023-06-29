@@ -53,7 +53,7 @@ const Login = ({setToken}) => {
                 required
                 />
                 <input
-                type="text"
+                type="password"
                 id="password"
                 name="password"
                 placeholder="Password"

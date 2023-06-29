@@ -6,16 +6,27 @@ const CategoryCalc = ({
   selectedScreenQuality,
   selectedStructurePhoneQuality,
   selectedGlobalQuality,
-  phoneRam
+  phoneRam,
+  phoneRating,
+  setPhoneRating,
+  setPhonePrice,
 }) => {
 
-  const [phoneRating, setPhoneRating] = useState("");
+ 
   const categories = {
-    cat1: "1 - HC | 0 €",
-    cat2: "2 - C | 17.5 €",
-    cat3: "3 - B | 35 €",
-    cat4: "4 - A | 52.5",
-    cat5: "5 - Premium | 70 €"
+    cat1: "HC",
+    cat2: "C",
+    cat3: "B",
+    cat4: "A",
+    cat5: "Premium"
+  };
+
+  const price = {
+    cat1: 0,
+    cat2: 17,
+    cat3: 35,
+    cat4: 52,
+    cat5: 70 
   };
 
   useEffect(() => {
@@ -83,7 +94,6 @@ const CategoryCalc = ({
     }
 
     setPhoneRating(rating);
-    console.log(rating);
   };
 
   useEffect(() => {
@@ -93,20 +103,28 @@ const CategoryCalc = ({
   const handleRating = () => {
     if (phoneRating < 90) {
       setPhoneRating(categories.cat1);
+      setPhonePrice(price.cat1);
     } else if (phoneRating >= 90 && phoneRating < 165) {
       setPhoneRating(categories.cat2);
+      setPhonePrice(price.cat2);
     } else if (phoneRating >= 165 && phoneRating < 255) {
       setPhoneRating(categories.cat3);
+      setPhonePrice(price.cat3);
     } else if (phoneRating >= 255 && phoneRating < 375) {
       setPhoneRating(categories.cat4);
+      setPhonePrice(price.cat4);
     } else if (phoneRating >= 375) {
       setPhoneRating(categories.cat5);
+      setPhonePrice(price.cat5)
     }
   };
 
+  
+  
+
+
   return (
     <>
-      La catégorie estimée est : {phoneRating}
     </>
   );
 };

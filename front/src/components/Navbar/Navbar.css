@@ -83,8 +83,6 @@
     position: absolute;
     right: 1.25em;
     top : 3.2em;
-    display: flex;
-    gap: .7em;
     background-color: var(--lightest-color);
     padding: 2em;
     filter: drop-shadow(0 .15em 0.1em #0000002b);
@@ -92,6 +90,27 @@
     z-index: 110;
 }
 
+.logout_container,
+.parameters_container{
+    display: flex;
+    justify-content: flex-start;
+    gap: .7em;
+    margin-bottom: 1em;
+}
+
+.parameters_container{
+    margin-bottom: 0;
+}
+
 .invisible{
     display: none;
+}
+
+
+/*----------------Media queries--------------*/
+
+@media screen and (max-width : 860px) {
+    .menu_entries{
+        display: none;
+    }
 }
