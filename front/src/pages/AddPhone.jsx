@@ -24,7 +24,7 @@ const AddPhone = () => {
     useEffect(()=>{
         axios.get('http://localhost:5080/api/phones')
             .then((res) => setData(res.data))
-            .catch((err) => console.log(err));
+            .catch((err) => console.error(err));
     },[]);
 
     //reducing all brands, models, ram, storages, screen, and gsm available
@@ -101,8 +101,6 @@ const AddPhone = () => {
         .catch((err) => console.log(err));
         console.log(newPhone);
     }
-
-    console.log(newPhone)
 
   return (
     <div className='add_phone_page'>
