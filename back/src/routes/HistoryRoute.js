@@ -4,7 +4,9 @@ const { HistoryController } = require("../controllers");
 const historyRouter = Router();
 
 //ROUTES PHONES
-historyRouter.get("", (req, res) => new PhoneController(req, res).getAll());
-historyRouter.post("", (req, res) => new PhoneController(req, res).postItem());
+historyRouter.get("", (req, res) => new HistoryController(req, res).getAll());
+historyRouter.post("", (req, res) =>
+  new HistoryController(req, res).postItem()
+);
 
 module.exports = historyRouter;

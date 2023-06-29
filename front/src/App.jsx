@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import PhoneSurvey from "./pages/PhoneSurvey";
 import "./App.css";
 import PhoneList from "./pages/PhoneList";
+import HistoryList from "./pages/HistoryList";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/phonesurvey" element={<PhoneSurvey />} />
         <Route path="/phonelist" element={<PhoneList />} />
+        <Route path="/history" element={<HistoryList />} />
       </Routes>
     </Router>
   );

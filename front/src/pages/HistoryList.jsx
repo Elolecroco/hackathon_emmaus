@@ -1,10 +1,10 @@
 import React from "react";
-import "./phoneList.css";
-import Phones from "../components/PhoneList/Phones";
+import "./historyList.css";
 import axios from "axios";
+import History from "../components/History/History";
 import { useEffect, useState } from "react";
 
-const PhoneList = () => {
+const HistoryList = () => {
   const [phones, setPhones] = useState([]);
 
   const resultsPerPage = 10; // Change this value as per your requirement
@@ -17,12 +17,9 @@ const PhoneList = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5080/api/phones`)
+      .get(`http://localhost:5080/api/history`)
       .then((res) => res.data)
-      .then((data) => setPhones(data))
-      .catch((error) => {
-        return Promise.reject(error.response.data);
-      });
+      .then((data) => setPhones(data));
   }, []);
 
   useEffect(() => {
@@ -42,26 +39,31 @@ const PhoneList = () => {
     handlePageChange(currentPage + 1);
   };
 
+  console.log(phones);
+
   return (
     <div>
-      <div className="list_background">
-        <div className="list_content">
-          <div className="top">
-            <h1>Base de donnée</h1>
-            <button>Ajouter un smartphone</button>
+      <div className="history_background">
+        <div className="history_content">
+          <div className="history_top">
+            <h1>Historique</h1>
           </div>
-          <div className="table">
-            <div className="header">
-              <div className="brand">Marque</div>
-              <div className="model">Modele</div>
-              <div className="storage">Stockage</div>
-              <div className="ram">RAM</div>
+          <div className="history_table">
+            <div className="history_header">
+              <div className="history_brand">Marque</div>
+              <div className="history_model">Modele</div>
+              <div className="history_storage">Stockage</div>
+              <div className="history_ram">RAM</div>
+              <div className="history_screen">Ecran</div>
+              <div className="history_gsm">Reseau</div>
+              <div className="history_rank">Rang</div>
+              <div className="history_price">Prix</div>
             </div>
 
             {currentResults &&
               currentResults.map((phone) => (
-                <div className="line" key={phone.id}>
-                  <Phones props={phone} />
+                <div className="history_line" key={phone.id}>
+                  <History props={phone} />
                 </div>
               ))}
           </div>
@@ -93,4 +95,4 @@ const PhoneList = () => {
   );
 };
 
-export default PhoneList;
+export default HistoryList;
