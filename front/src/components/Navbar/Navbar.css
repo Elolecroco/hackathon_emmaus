@@ -88,6 +88,7 @@
     filter: drop-shadow(0 .15em 0.1em #0000002b);
     border-radius: .25em;
     z-index: 110;
+    cursor: pointer;
 }
 
 .logout_container,

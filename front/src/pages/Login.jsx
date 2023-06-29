@@ -7,10 +7,14 @@ import './login.css'
 
 const Login = ({setToken}) => {
 
+    //form email/password
     const [form, setForm ] = useState({
         email : "",
         password : "",
     });
+
+    //errors storage
+    const [errors, setErrors] = useState()
 
     //on changing input values
     const formChanges = (e) => {
@@ -25,7 +29,7 @@ const Login = ({setToken}) => {
     axios
         .post("http://localhost:5080/api/users/login", form)
         .then((res) => setToken(res.data))
-        .catch((error) => console.error(error));
+        .catch((error) => setErrors(error));
     
     document.getElementById("password").value = "";
     };
@@ -61,15 +65,10 @@ const Login = ({setToken}) => {
                 />
                 <button type="submit">Connectez-vous</button>
             </form>
+            {errors ? <p className='error_message'>email ou mot de passe invalide(s)</p> : null}
         </div>        
     </div>
   )
 }
 
 export default Login
-{/* {formError ? (
-<p className="login_error">Email ou mot de passe invalide</p>
-) : null}
-<Link to="#">
-<p className="forgotten_password">Mot de passe oublié</p>
-</Link> */}

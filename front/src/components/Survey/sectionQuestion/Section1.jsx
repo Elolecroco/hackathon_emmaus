@@ -26,6 +26,7 @@ const Section1 = ({
     name: "",
     values: [],
   });
+  
 
   useEffect(() => {
     axios
@@ -39,9 +40,10 @@ const Section1 = ({
   const handleSelectedStorage = (event) => {
     const selectedValue = event.target.value;
     setSelectedPhone(selectedValue);
-    setSelectedPhoneObject(
-      storageAvailable.filter((el) => el.storage === parseInt(selectedValue))
-    );
+    setSelectedPhoneObject(storageAvailable.filter(
+      (el) => el.storage === parseInt(selectedValue)
+    ));
+
   };
 
   const brands = data?.reduce(
@@ -177,16 +179,18 @@ const Section1 = ({
       </div>
 
       <div className="section_list">
-        <div>
-          <select value={selectedPhone} onChange={handleSelectedStorage}>
-            {storageAvailable.map((el, index) => (
-              <option key={index} value={el.storage}>
-                {el.storage}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+      
+      <label htmlFor="memory">
+          Quel est la capacité de stockage du téléphone ?
+      </label>
+      <select className="memory_select_input" name="memory" id="memory" value={selectedPhone} onClick={handleSelectedStorage}>
+        {storageAvailable.map((el, index) => (
+          <option key={index} value={el.storage}>
+            {el.storage}
+          </option>
+        ))}
+      </select>
+    </div>
 
       <button onClick={goTOSection2}>Continuer</button>
     </div>

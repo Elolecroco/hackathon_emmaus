@@ -80,6 +80,14 @@ input[type="radio"]:checked::before {
     font-size: 0.8em;
 }
 
+.memory_select_input{
+    padding: .7em 1.5em;
+    border: none;
+    border-radius: .5em;
+    background-color: var(--bg-color);
+    width: 80%;
+}
+
 /* Section 3 */
 
 .select_section_three{
