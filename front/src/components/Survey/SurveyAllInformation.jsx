@@ -10,8 +10,14 @@ const SurveyAllInformation = ({
   selectedGlobalQuality,
   unlockedSim,
   selectedStructurePhoneQuality,
-  setSeeAllInformation
+  setSeeAllInformation,
+  phoneRam,
+  phoneRating,
+  phonePrice,
+  selectedPhoneObject
 }) => {
+
+  
 
   const handleModifyInformation = () => {
     setSeeAllInformation(false)
@@ -19,8 +25,20 @@ const SurveyAllInformation = ({
 
   const sendPhoneOnBack = () => {
     setSeeAllInformation(false)
-    console.log("lalala")
+    const newPhone = {
+      "brand": selectedPhoneObject[0].brand,
+      "model": selectedPhoneObject[0].model,
+      "storage": selectedPhoneObject[0].storage,
+      "ram": selectedPhoneObject[0].ram,
+      "screen": selectedPhoneObject[0].screen,
+      "gsm": selectedPhoneObject[0].gsm,
+      "price": phonePrice,
+      "rank": phoneRating
+    }
+    console.log(newPhone)
   }
+
+  console.log(phoneRam)
   return (
     <div className="background_blur_resume_survey">
       <div className="background_survey_phone">
@@ -28,10 +46,10 @@ const SurveyAllInformation = ({
           <div className="phone_img_data">
             <div className="price_background">
               <div className="price_background_bis">
-                <p className="price">70€</p>
+                <p className="price">{phonePrice} €</p>
               </div>
             </div>
-            <p className="price_categorie">PREMIUM</p>
+            <p className="price_categorie">{phoneRating}</p>
           </div>
 
           <button className="send_button"onClick={sendPhoneOnBack}>Valider</button>
@@ -40,11 +58,11 @@ const SurveyAllInformation = ({
           <p className="title_price">Résumé</p>
           <div className="information_container">
             <p>Marque</p>
-            <p>{selectedBrand}</p>
+            <p>{selectedPhoneObject[0].brand}</p>
           </div>
           <div className="information_container">
             <p>Model</p>
-            <p>{selectedModel}</p>
+            <p>{selectedPhoneObject[0].model}</p>
           </div>
 
           <div className="information_container">
@@ -66,11 +84,11 @@ const SurveyAllInformation = ({
           <div className="technical_info_resume">
             <div className="information_technical_container">
               <p>Stockage</p>
-              <p className="technical_value">{selectedStorage}</p>
+              <p className="technical_value">{selectedPhoneObject[0].storage}</p>
             </div>
             <div className="information_technical_container">
               <p>Mémoire Ram</p>
-              <p className="technical_value">23</p>
+              <p className="technical_value">{selectedPhoneObject[0].ram}</p>
             </div>
           </div>
           <button className="change_resume_button" onClick={handleModifyInformation}>Modifier les informations</button>
