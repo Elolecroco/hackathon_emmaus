@@ -14,25 +14,22 @@
 
 .estimation-container,
 .add-container {
-    height: 100%;
     width: 50%;
-    padding: 1em;
+    padding: 2em;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
+.estimation-container {background-color: var(--bg-color);}
 .add-container {background-color: var(--dark-color);}
 
 .estimation-img-container {
     height: 30em; 
     width: 37em;
-    z-index: 11;
 }
 .ajouter-img-container { 
     height: 30em; 
     width: 32em;
-    z-index: 10;
 }
 .estimation-img-container>img,
 .ajouter-img-container>img {
@@ -40,15 +37,16 @@
     width: 100%;
 }
 
-.estimation-container>button,
-.add-container>button {
-    width: 75%;
-    padding: 0.8em;
+.estimation-container>a,
+.add-container>a {
+    width: 65%;
+    padding: 0.5em;
     margin: 0.5em 0 3em 0;
     border: none;
     border-radius: 24px;
     background-color: var(--highlight-color);
     color: var(--bg-color);
+    text-align: center;
 }
 
 .estimation-container>p,
