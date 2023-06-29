@@ -4,8 +4,10 @@ import "./phoneList.css";
 import Phones from "../components/PhoneList/Phones";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 const PhoneList = () => {
+  const maxWidth850 = useMediaQuery("(max-width: 860px)");
   const [phones, setPhones] = useState([]);
 
   const resultsPerPage = 10; // Change this value as per your requirement
@@ -47,47 +49,43 @@ const PhoneList = () => {
     <div>
       <div className="list_background">
         <div className="list_content">
-          <div className="top">
-            <h1>Base de donnée</h1>
-            <Link to='/addphone'>Ajouter un smartphone</Link>
-          </div>
-          <div className="table">
-            <div className="header">
-              <div className="brand">Marque</div>
-              <div className="model">Modele</div>
-              <div className="storage">Stockage</div>
-              <div className="ram">RAM</div>
-              <div className="screen">Ecran</div>
-              <div className="gsm">Reseau</div>
+          <div className="list">
+            <div className="top">
+              <h1>Base de donnée</h1>
+              <Link to="/addphone">Ajouter un smartphone</Link>
             </div>
-
-            {currentResults &&
-              currentResults.map((phone) => (
-                <div className="line" key={phone.id}>
-                  <Phones props={phone} />
-                </div>
-              ))}
+            <div className="table">
+              <div className="header">
+                <div className="brand">Marque</div>
+                <div className="model">Modele</div>
+                <div className="storage">Stockage</div>
+                <div className="ram">RAM</div>
+                {!maxWidth850 ? <div className="screen">Ecran</div> : null}
+                {!maxWidth850 ? <div className="gsm">Reseau</div> : null}
+              </div>
+              {currentResults &&
+                currentResults.map((phone) => (
+                  <div className="line" key={phone.id}>
+                    <Phones props={phone} />
+                  </div>
+                ))}
+            </div>
           </div>
           <div className="navButtons">
-            <button onClick={handlePreviousClick} disabled={currentPage === 1}>
-              Previous
+            <button
+              className="previous"
+              onClick={handlePreviousClick}
+              disabled={currentPage === 1}
+            >
+              Page precedente
             </button>
 
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
-                disabled={currentPage === index + 1}
-              >
-                {index + 1}
-              </button>
-            ))}
-
             <button
+              className="next"
               onClick={handleNextClick}
               disabled={currentPage === totalPages}
             >
-              Next
+              Page suivante
             </button>
           </div>
         </div>
