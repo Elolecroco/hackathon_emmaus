@@ -43,22 +43,28 @@ const MenuBurger = ({ removeToken, token }) => {
           <NavLink to="/history" className={splitLocation[1] === 'history' ? 'active_burger' : ''} onClick={toggleMenu}>
             <li className="menu-burger__item">Nos smartphones</li>
           </NavLink>
-          {token && token.role === 'admin' && (
-            <NavLink to="/phonelist" className={splitLocation[1] === 'phonelist' ? 'active_burger' : ''} onClick={toggleMenu}>
-              <li className="menu-burger__item">Ajouter un smartphone</li>
-            </NavLink>
-          )}
+
+          {token && token.role === "admin" 
+            ? <NavLink to="/phonelist" className={splitLocation[1] === 'phonelist' ? 'active_burger' : ''} onClick={toggleMenu}>
+                <li className="menu-burger__item">Ajouter un smartphone</li>
+              </NavLink>
+            : null}
+            
           <hr />
           <div className="logout_burger" onClick={removeToken}>
             <MdLogout className="logout_burger-icon" />
             <li className="menu-burger__item">Se déconnecter</li>
           </div>
-          <NavLink to="/minconfig" className={splitLocation[1] === 'minconfig' ? 'active_burger' : ''} onClick={toggleMenu}>
-            <div className="logout_burger">
-              <MdSettings className="logout_burger-icon" />
-              <li className="menu-burger__item">Paramètres</li>
-            </div>
-          </NavLink>
+
+          {token && token.role === "admin" 
+            ? <NavLink to="/minconfig" className={splitLocation[1] === 'minconfig' ? 'active_burger' : ''} onClick={toggleMenu}>
+                <div className="logout_burger">
+                  <MdSettings className='logout_burger-icon'/>
+                  <li className="menu-burger__item">Paramètres</li>
+                </div>
+              </NavLink>
+            : null }
+            
         </ul>
       )}
     </div>
