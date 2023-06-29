@@ -89,7 +89,7 @@ const SurveyState = ({
         {/* Pour afficher le bouton retour seulement à partir de l'étape 2 */}
         {currentStep !== 1 && (
           <p className="return" onClick={handlePreviousStep}>
-            Retour
+            Retour à l'étape précédente
           </p>
         )}
       </div>

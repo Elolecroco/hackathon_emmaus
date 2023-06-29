@@ -7,17 +7,18 @@ import Section4 from "./sectionQuestion/Section4";
 import Section5 from "./sectionQuestion/Section5";
 
 const SurveyQuestion = ({
+  
+  selectedStructurePhoneQuality,
   selectedBrand,
   selectedModel,
   selectedStorage,
   selectedScreenQuality,
-  unlockedSim,
-  screenState,
   seeSection1,
   seeSection2,
   seeSection3,
   seeSection4,
   seeSection5,
+  setSelectedStructurePhoneQuality,
   selectedGlobalQuality,
   setSelectedGlobalQuality,
   setSelectedBrand,
@@ -68,33 +69,27 @@ const SurveyQuestion = ({
 
   return (
     <div className="question_background">
-      {seeSection1 ? (
-        <Section1
-          selectedBrand={selectedBrand}
-          selectedModel={selectedModel}
-          selectedStorage={selectedStorage}
-          setSelectedBrand={setSelectedBrand}
-          setSelectedModel={setSelectedModel}
-          setSelectedStorage={setSelectedStorage}
-          phoneData={phoneData}
-          goTOSection2={goTOSection2}
-        />
-      ) : seeSection2 ? (
-        <Section2 setUnlockedSim={setUnlockedSim} goTOSection3={goTOSection3} />
-      ) : seeSection3 ? (
-        <Section3
-          goTOSection4={goTOSection4}
-          selectedScreenQuality={selectedScreenQuality}
-          setSelectedScreenQuality={setSelectedScreenQuality}
-        />
-      ) : seeSection4 ? (
-        <Section4 setScreenState={setScreenState} goTOSection5={goTOSection5} />
-      ) : seeSection5 ? (
-        <Section5
-          setSelectedGlobalQuality={setSelectedGlobalQuality}
-          selectedGlobalQuality={selectedGlobalQuality}
-        />
-      ) : null}
+      {seeSection1 ?  <Section1
+        selectedBrand={selectedBrand}
+        selectedModel={selectedModel}
+        selectedStorage={selectedStorage}
+        setSelectedBrand={setSelectedBrand}
+        setSelectedModel={setSelectedModel}
+        setSelectedStorage={setSelectedStorage}
+        phoneData ={phoneData}
+        goTOSection2 ={goTOSection2}
+      />
+      : seeSection2 ?
+       <Section2 setUnlockedSim={setUnlockedSim} goTOSection3={goTOSection3} />
+      : seeSection3 ? 
+       <Section3 goTOSection4={goTOSection4} selectedScreenQuality={selectedScreenQuality} setSelectedScreenQuality={setSelectedScreenQuality} />
+      : seeSection4 ?
+        <Section4 setSelectedStructurePhoneQuality={setSelectedStructurePhoneQuality} goTOSection5={goTOSection5} selectedStructurePhoneQuality ={selectedStructurePhoneQuality} />
+      : seeSection5 ?
+       <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality}/>
+      : null
+      }
+     
     </div>
   );
 };

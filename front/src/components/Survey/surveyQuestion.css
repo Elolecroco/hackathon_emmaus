@@ -1,4 +1,5 @@
 .question_background{
+    position: relative;
     width: 70%;
     background-color: var(--lightest-color);
     border-radius: 1em;
@@ -45,6 +46,7 @@ input[type="radio"] {
     border: 2px solid var(--faded-color); 
     outline: none;
     background-color: transparent;
+    margin-left: 1em;
    
   }
   
@@ -121,8 +123,6 @@ li{
 
 } */
 
-  
- 
 
 
 
@@ -143,7 +143,6 @@ li{
     margin-left: 1em;
 }
 .section2-info { 
-    width: 75%; 
     padding: 1em;
     margin-bottom: 1em;
     background-color: var(--faded-color);
@@ -154,6 +153,10 @@ li{
     display: flex;
     align-items: center;
     gap: 1em;
+}
+
+.section2_choice{
+    margin: 1em 0;
 }
 
 .section2_choice>label,
@@ -175,11 +178,36 @@ li{
 
 /* SECTION 4 */
 .section4_choice {
+  
     margin: 1em;
     padding: 0.5em;
     border: 1px solid var(--dark-color);
     border-radius: 8px;
+
 }
 .section4_choice>p {
     margin: 0.5em;
+}
+
+button{
+    background-color: var(--faded-color);
+    font-size: 1em;
+    padding: 0.7em;
+    border: none;
+    border-radius: 1.5em;
+ 
+
+}
+
+button:hover{
+    background-color: var(--dark-color);
+    color: var(--lightest-color);
+}
+
+
+@media (max-width: 860px) {
+    .question_background{
+        width: 100%;
+
+    }
 }
