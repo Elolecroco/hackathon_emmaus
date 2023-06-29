@@ -9,6 +9,7 @@
 .survey_state_texte_background{
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
     width: 100%;
 }
 
@@ -56,6 +57,6 @@
 @media (max-width: 860px) {
     .return{
         font-size: 0.8em; 
-        text-align: end;
+        text-align: start;
     }
 }
