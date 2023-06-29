@@ -1,7 +1,7 @@
 import React from 'react'
 import './surveyResume.css'
 
-const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, unlockedSim, screenState}) => {
+const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, selectedScreenQuality,selectedGlobalQuality, unlockedSim, screenState}) => {
   return (
     <div className='resume_background'>
 
@@ -21,6 +21,7 @@ const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, unlockedSi
       <p>{selectedModel}</p>
     </div>
      } 
+     
       {
       selectedStorage === "" 
       ? null
@@ -29,7 +30,7 @@ const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, unlockedSi
       <p>{selectedStorage}</p>
     </div>
      } 
-     {
+      {
       unlockedSim === null 
       ? null
       : <div className="resume_section">
@@ -37,6 +38,16 @@ const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, unlockedSi
       <p>{unlockedSim}</p>
     </div>
      } 
+      {
+      selectedScreenQuality === "" 
+      ? null
+      : <div className="resume_section">
+      <p>Etat de l'écran</p>
+      <p>{selectedScreenQuality}</p>
+    </div>
+     } 
+    
+    
      {
       screenState === null 
       ? null
@@ -45,6 +56,14 @@ const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, unlockedSi
       <p>{screenState}</p>
     </div>
      } 
+      {
+      selectedGlobalQuality === ""
+      ? null
+      :<div className="resume_section">
+      <p>Téléphone Fonctionnel</p>
+      <p>{selectedGlobalQuality}</p>
+    </div>
+     }
       
     </div>
   )

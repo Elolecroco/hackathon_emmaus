@@ -9,6 +9,8 @@ const PhoneSurvey = () => {
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   const [selectedStorage, setSelectedStorage] = useState("");
+  const [selectedScreenQuality, setSelectedScreenQuality] = useState("");
+  const [selectedGlobalQuality, setSelectedGlobalQuality] = useState("")
   const [unlockedSim, setUnlockedSim] = useState(null)
   const [screenState, setScreenState] = useState(null)
   const [seeSection1, setSeeSection1] = useState(true);
@@ -16,6 +18,8 @@ const PhoneSurvey = () => {
   const [seeSection3, setSeeSection3] = useState(false);
   const [seeSection4, setSeeSection4] = useState(false);
   const [seeSection5, setSeeSection5] = useState(false);
+
+  
 
   return (
     <div>
@@ -38,6 +42,8 @@ const PhoneSurvey = () => {
             selectedBrand={selectedBrand}
             selectedModel={selectedModel}
             selectedStorage={selectedStorage}
+            selectedScreenQuality={selectedScreenQuality}
+            selectedGlobalQuality={selectedGlobalQuality}
             unlockedSim={unlockedSim}
             screenState={screenState}
           />
@@ -45,11 +51,15 @@ const PhoneSurvey = () => {
             selectedBrand={selectedBrand}
             selectedModel={selectedModel}
             selectedStorage={selectedStorage}
-            unlockedSim={unlockedSim}
-            screenState={screenState}
+            selectedScreenQuality={selectedScreenQuality}
+            selectedGlobalQuality ={selectedGlobalQuality}
+            setSelectedGlobalQuality ={setSelectedGlobalQuality}
             setSelectedBrand={setSelectedBrand}
             setSelectedModel={setSelectedModel}
             setSelectedStorage={setSelectedStorage}
+            setSelectedScreenQuality={setSelectedScreenQuality}
+            unlockedSim={unlockedSim}
+            screenState={screenState}
             setUnlockedSim={setUnlockedSim}
             setScreenState={setScreenState}
             setSeeSection1={setSeeSection1}
