@@ -32,7 +32,7 @@ const Navbar = ({removeToken, token}) => {
                 <div className={isMenuLogout ? "menu_logout" : "menu_logout invisible"}>
                         <div className="logout_container"  onClick={removeToken}>
                             <MdLogout className='logout-icon'/>
-                            <p className="logout">logout</p>
+                            <p className="logout">Se déconnecter</p>
                         </div>
                         <NavLink to='/minconfig' className={splitLocation[1] === "minconfig" ? "active" : ""}>
                             <div className="parameters_container">
