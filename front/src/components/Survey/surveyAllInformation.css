@@ -1,0 +1,118 @@
+.background_blur_resume_survey{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 2000;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(3px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000010;
+}
+
+.background_survey_phone{
+    display: flex;
+    background-color: var(--bg-color);
+    height: 80%;
+    width:70%;
+    border-radius: 1em;
+}
+
+.phone_img_data{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    background-image: url(../../assets/phone.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60%;
+    width: 80%;
+    
+}
+
+.price_categorie{
+    font-weight: 600;
+}
+
+.phone_section_backgroud{
+    width: 50%;
+    height: 100%;
+    background-color: var(--faded-color);
+    border-radius: 1em 0 0 1em ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.price_background{
+    background-color: var(--faded-color);
+    padding: 1em;
+    border-radius: 5em;
+}
+
+.price_background_bis{
+    background-color: var(--dark-color);
+    padding: 1.5em 1em;
+    border-radius: 5em;
+}
+
+.price{
+    color: var(--lightest-color);
+    font-size: 2em;
+}
+
+
+.resume_section_background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   height: 100%;
+   width: 50%;
+}
+
+.title_price{
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.information_container{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: solid 1px var(--faded-color);
+
+}
+
+.technical_info_resume{
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    margin-top: 1em;
+    width: 80%;
+}
+.information_technical_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 800;
+    gap: 0.5em;
+}
+.technical_value{
+    border: 3px solid var(--dark-color);
+    padding: 1em 4em;
+    border-radius: 0.5em;
+
+}
+
+.change_resume_button{
+    margin-top: 1.5em;
+}
