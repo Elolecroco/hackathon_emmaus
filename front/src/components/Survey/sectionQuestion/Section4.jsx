@@ -12,7 +12,9 @@ const Section4 = ({
   return (
     <div className="question_part_4">
       <div className="section4_question">
-        <p className="title_survey">Quel est l'état de la coque et du contour ?</p>
+        <p className="title_survey">
+          Quel est l'état de la coque et du contour ?
+        </p>
       </div>
       <label htmlFor="option1" className="select_section_three">
         <div className="checkbox">
@@ -28,7 +30,7 @@ const Section4 = ({
         </div>
         <div className="chekbox_text">
           <p className="section_title_screen">Parfait état</p>
-          <p>Parfait état, aucune rayure visible</p>
+          <p>En excellent état, aucune trace de rayure visible.</p>
         </div>
       </label>
 
@@ -47,8 +49,8 @@ const Section4 = ({
         <div className="chekbox_text">
           <p className="section_title_screen">Très bon état</p>
           <p>
-            Peuvent présenter des micro-rayures à peine visibles (invisibles à
-            20 cm), sans fissure et/ou impact
+            Peuvent afficher de légères micro-rayures quasiment invisibles
+            (invisibles à une distance de 20 cm), sans aucune fissure ni impact.
           </p>
         </div>
       </label>
@@ -68,8 +70,8 @@ const Section4 = ({
         <div className="chekbox_text">
           <p className="section_title_screen">Etat correct</p>
           <p>
-            Peuvent présenter des traces d’usure visibles, des rayures profondes
-            et/ou petits impacts
+            Peuvent exhiber des signes d'usure apparents, des rayures profondes
+            et/ou de légers impacts.
           </p>
         </div>
       </label>
@@ -89,7 +91,8 @@ const Section4 = ({
         <div className="chekbox_text">
           <p className="section_title_screen">Cassé</p>
           <p>
-            Peuvent présenter au moins une fissure ou sont visiblement cassés
+            Peuvent avoir au moins une fissure apparente ou être clairement
+            endommagés.
           </p>
         </div>
       </label>
