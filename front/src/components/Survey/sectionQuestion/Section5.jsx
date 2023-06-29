@@ -7,7 +7,7 @@ const Section5 = ({ selectedGlobalQuality, setSelectedGlobalQuality }) => {
 
   return (
     <div>
-      <p className="section_title_screen">L'appareil est il fonctionnel ?</p>
+      <p className="title_survey">L'appareil est il fonctionnel ?</p>
       <ul>
         <li>
           L'appareil s'allume, s'éteint et se charge. Il possède une batterie,

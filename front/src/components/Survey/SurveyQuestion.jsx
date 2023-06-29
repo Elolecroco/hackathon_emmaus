@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import "./surveyQuestion.css";
-import Section1 from "./sectionQuestion/section1";
+import Section1 from "./sectionQuestion/Section1";
 import Section2 from "./sectionQuestion/Section2";
 import Section3 from "./sectionQuestion/Section3";
 import Section4 from "./sectionQuestion/Section4";
 import Section5 from "./sectionQuestion/Section5";
 
 const SurveyQuestion = ({
+  
+  selectedStructurePhoneQuality,
   selectedBrand,
   selectedModel,
   selectedStorage,
   selectedScreenQuality,
-  unlockedSim,
-  screenState,
   seeSection1,
   seeSection2,
   seeSection3,
   seeSection4,
   seeSection5,
+  setSelectedStructurePhoneQuality,
   selectedGlobalQuality,
   setSelectedGlobalQuality,
   setSelectedBrand,
@@ -86,7 +87,7 @@ const SurveyQuestion = ({
       : seeSection3 ? 
        <Section3 goTOSection4={goTOSection4} selectedScreenQuality={selectedScreenQuality} setSelectedScreenQuality={setSelectedScreenQuality} />
       : seeSection4 ?
-        <Section4 setScreenState={setScreenState} goTOSection5={goTOSection5} />
+        <Section4 setSelectedStructurePhoneQuality={setSelectedStructurePhoneQuality} goTOSection5={goTOSection5} selectedStructurePhoneQuality ={selectedStructurePhoneQuality} />
       : seeSection5 ?
        <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality}/>
       : null

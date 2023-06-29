@@ -46,3 +46,16 @@
     height: 0.3em;
     border-radius: 1em;
 }
+
+.return:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--highlight-color);
+  }
+
+@media (max-width: 860px) {
+    .return{
+        font-size: 0.8em; 
+        text-align: end;
+    }
+}

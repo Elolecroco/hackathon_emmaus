@@ -1,7 +1,7 @@
 import React from 'react'
 import './surveyResume.css'
 
-const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, selectedScreenQuality,selectedGlobalQuality, unlockedSim, screenState}) => {
+const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, selectedScreenQuality,selectedGlobalQuality, unlockedSim, selectedStructurePhoneQuality}) => {
   return (
     <div className='resume_background'>
 
@@ -49,11 +49,11 @@ const SurveyResume = ({selectedBrand, selectedModel, selectedStorage, selectedSc
     
     
      {
-      screenState === null 
+      selectedStructurePhoneQuality === "" 
       ? null
       : <div className="resume_section">
       <p>Etat de la coque</p>
-      <p>{screenState}</p>
+      <p>{selectedStructurePhoneQuality}</p>
     </div>
      } 
       {

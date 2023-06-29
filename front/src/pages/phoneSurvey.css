@@ -1,6 +1,6 @@
 .survey_background{
     background-color: var(--bg-color);
-    height: 100vh;
+    min-height: 90vh;
     padding: 4em;
 }
 
@@ -9,4 +9,14 @@
     gap: 1em;
 
 }
+
+@media (max-width: 860px) {
+    .survey_background{
+        padding: 2em;
+
+    }
+}
+
+
+
 
