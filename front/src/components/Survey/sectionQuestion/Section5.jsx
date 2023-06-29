@@ -11,22 +11,22 @@ const Section5 = ({ selectedGlobalQuality, setSelectedGlobalQuality, setSeeAllIn
   return (
     <div>
       <p className="title_survey">L'appareil est il fonctionnel ?</p>
-      <ul>
-        <li>
+      <ul className="list_section">
+        <li className="button_list_section">
           L'appareil s'allume, s'éteint et se charge. Il possède une batterie,
           sa coque et un tiroir SIM.
         </li>
-        <li>Les appareils photo avant et arrière fonctionnent parfaitement.</li>
-        <li>Les haut-parleurs et les microphones fonctionnent parfaitement.</li>
-        <li>
+        <li className="button_list_section">Les appareils photo avant et arrière fonctionnent parfaitement.</li>
+        <li className="button_list_section">Les haut-parleurs et les microphones fonctionnent parfaitement.</li>
+        <li className="button_list_section">
           Les technologies Touch ID et Face ID sont fonctionnelles (si
           présentes).
         </li>
-        <li>
+        <li className="button_list_section">
           Toutes les autres fonctions, y compris le Wifi, le Bluetooth, les
           boutons, etc. fonctionnent parfaitement.
-        </li>
-        <li>
+        </li >
+        <li className="button_list_section">
           Important : tous les comptes (iCloud, Google ou autre) doivent être
           déconnectés, que votre appareil soit fonctionnel ou non. Nous
           n'acceptons pas les articles tordus et/ou oxydés.

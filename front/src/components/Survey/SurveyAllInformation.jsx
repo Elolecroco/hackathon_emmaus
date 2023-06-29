@@ -1,6 +1,10 @@
 import React from "react";
+import confetti from "canvas-confetti";
+import { useNavigate } from 'react-router-dom';
+
 
 import "./surveyAllInformation.css";
+import axios from "axios";
 
 const SurveyAllInformation = ({
   selectedBrand,
@@ -16,15 +20,16 @@ const SurveyAllInformation = ({
   phonePrice,
   selectedPhoneObject
 }) => {
-
   
+
+  let navigate = useNavigate();
 
   const handleModifyInformation = () => {
     setSeeAllInformation(false)
   }
 
   const sendPhoneOnBack = () => {
-    setSeeAllInformation(false)
+    
     const newPhone = {
       "brand": selectedPhoneObject[0].brand,
       "model": selectedPhoneObject[0].model,
@@ -35,6 +40,14 @@ const SurveyAllInformation = ({
       "price": phonePrice,
       "rank": phoneRating
     }
+
+    axios.post("http://localhost:5080/api/history", newPhone)
+      .then((res)=> {if(res.status === 201){
+        setSeeAllInformation(false)
+        navigate('/');
+        confetti()
+      }})
+    
     console.log(newPhone)
   }
 
