@@ -69,11 +69,14 @@ form{
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
 }
+
 .field_split{
     display: flex;
     width: 100%;
-    gap: 1.5em
+    gap: 1.5em;
+    position: relative;
 }
 
 label{
@@ -92,6 +95,20 @@ input{
     color: var(--faded-color);
     
 }   
+
+.suggestions{
+    position: absolute;
+    top: 4.3em;
+    border-radius: .15em;
+    background-color: var(--bg-color);
+    padding: 1em;
+    z-index: 2;
+    filter: drop-shadow(0 .15em 0.1em #0000002b);
+}
+
+.suggestions li{
+    margin: .2em 0
+}
 
 button{
     background-color: var(--dark-color);

@@ -66,29 +66,45 @@ const AddPhone = () => {
         let key = e.target.name;
         let value = e.target.value;
 
-        // let allOptions = brands[key].map(el => el.toString().toLowerCase());
-
         if(value === ''){
             setSuggestions({
                 name : key,
                 values : [],
-            })
+            });
         }else{
             setSuggestions({
                 name : key,
                 values : brands[key].filter((el) => el.toString().toLowerCase().startsWith(value.toLowerCase())),
-            })
+            });
         }
 
         setNewPhone({...newPhone,  [key] : value });
     }
 
+    //On Selecting a suggested value
+    const onSelectingSuggestion = (value, key) =>{
 
-    //on Sending the form
+        setNewPhone({
+            ...newPhone,
+            [key]: value 
+        });
+
+        setSuggestions({
+            name : key,
+            values : [],
+        });
+    };
+
+    //On Sending the form
     const sendingForm = (e) =>{
         e.preventDefault();
+        axios.post('http://localhost:5080/api/phones', newPhone)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
         console.log(newPhone);
     }
+
+    console.log(newPhone)
 
   return (
     <div className='add_phone_page'>
@@ -106,10 +122,10 @@ const AddPhone = () => {
                         <div className="field">
                             <label htmlFor="brand">Marque</label>
                             <input type="text" name="brand" id="brand" required placeholder='Marque' value={newPhone.brand} onChange={inputChange}/>
-                            {suggestions.values && suggestions.name === "brand"
+                            {suggestions.values.length !== 0 && suggestions.name === "brand"
                                 ?<ul className="suggestions">
                                     {suggestions.values.map((el, i) => (
-                                        <li key={i}>{el}</li>
+                                        <li key={i} onClick={() => onSelectingSuggestion(el, "brand")} >{el}</li>
                                     ))}
                                 </ul>
                                 : null
@@ -118,10 +134,10 @@ const AddPhone = () => {
                         <div className="field">
                             <label htmlFor="model">Modèle</label>
                             <input type="text" name="model" id="model" required placeholder='Modèle' value={newPhone.model} onChange={inputChange}/>
-                            {suggestions.values && suggestions.name === "model"
+                            {suggestions.values.length !== 0 && suggestions.name === "model"
                                 ?<ul className="suggestions">
                                     {suggestions.values.map((el, i) => (
-                                        <li key={i}>{el}</li>
+                                        <li key={i} onClick={() => onSelectingSuggestion(el, "model")} >{el}</li>
                                     ))}
                                 </ul>
                                 : null
@@ -131,10 +147,10 @@ const AddPhone = () => {
                             <div className="field">
                                 <label htmlFor="storage">Stockage</label>
                                 <input type="number" name="storage" id="storage" required placeholder='Mémoire de stockage' value={newPhone.storage} onChange={inputChange}/>
-                                {suggestions.values && suggestions.name === "storage"
+                                {suggestions.values.length !== 0 && suggestions.name === "storage"
                                     ?<ul className="suggestions">
                                         {suggestions.values.map((el, i) => (
-                                            <li key={i}>{el}</li>
+                                            <li key={i} onClick={() => onSelectingSuggestion(el, "storage")} >{el}</li>
                                         ))}
                                     </ul>
                                     : null
@@ -143,10 +159,10 @@ const AddPhone = () => {
                             <div className="field">
                                 <label htmlFor="ram">Mémoire RAM</label>
                                 <input type="number" name="ram" id="ram" required placeholder='Mémoire RAM' value={newPhone.ram} onChange={inputChange}/>
-                                {suggestions.values && suggestions.name === "ram"
+                                {suggestions.values.length !== 0 && suggestions.name === "ram"
                                     ?<ul className="suggestions">
                                         {suggestions.values.map((el, i) => (
-                                            <li key={i}>{el}</li>
+                                            <li key={i} onClick={() => onSelectingSuggestion(el, "ram")} >{el}</li>
                                         ))}
                                     </ul>
                                     : null
@@ -157,10 +173,10 @@ const AddPhone = () => {
                             <div className="field">
                                 <label htmlFor="screen">Écran</label>
                                 <input type="number" name="screen" id="screen" required placeholder="Taille de l'écran" value={newPhone.screen} onChange={inputChange}/>
-                                {suggestions.values && suggestions.name === "screen"
+                                {suggestions.values.length !== 0 && suggestions.name === "screen"
                                     ?<ul className="suggestions">
                                         {suggestions.values.map((el, i) => (
-                                            <li key={i}>{el}</li>
+                                            <li key={i} onClick={() => onSelectingSuggestion(el, "screen")} >{el}</li>
                                         ))}
                                     </ul>
                                     : null
@@ -169,10 +185,10 @@ const AddPhone = () => {
                             <div className="field">
                                 <label htmlFor="gsm">Réseau</label>
                                 <input type="text" name="gsm" id="gsm" required placeholder='Réseau' onChange={inputChange}/>
-                                {suggestions.values && suggestions.name === "gsm"
+                                {suggestions.values.length !== 0 && suggestions.name === "gsm"
                                     ?<ul className="suggestions">
                                         {suggestions.values.map((el, i) => (
-                                            <li key={i}>{el}</li>
+                                            <li key={i} onClick={() => onSelectingSuggestion(el, "gsm")} >{el}</li>
                                         ))}
                                     </ul>
                                     : null
