@@ -9,14 +9,27 @@ import illustration from '../assets/ajouter-mobile_illus.png'
 
 const AddPhone = () => {
 
-    const [data, setData] = useState([]);
+    const [ data, setData ] = useState([]);
+    const [ newPhone, setNewPhone ] = useState({
+        brand : "",
+        model : "",
+        storage : "",
+        ram : "",
+        screen : "",
+        gsm : "",
+    });
+    const [ suggestions, setSuggestions ] = useState({
+        key : '',
+        values : [],
+    });
 
     useEffect(()=>{
         axios.get('http://localhost:5080/api/phones')
-            .then((res) => setData(res.data));
+            .then((res) => setData(res.data))
+            .catch((err) => console.log(err));
     },[]);
 
-    //reducing all brands, models, ram and storages
+    //reducing all brands, models, ram, storages, screen, and gsm available
     const brands = data?.reduce((acc, { brand, model, storage, ram, screen, gsm })=>{
         if(!acc.brand.includes(brand)) acc.brand.push(brand);
         if(!acc.model.includes(model)) acc.model.push(model);
@@ -47,10 +60,34 @@ const AddPhone = () => {
         return a-b;
     })
     
-    brands && console.log(brands);
 
+    //on changing the form inputs
     const inputChange = (e) =>{
-        console.log(e.target.value, e.target.name);
+        let key = e.target.name;
+        let value = e.target.value;
+
+        // let allOptions = brands[key].map(el => el.toString().toLowerCase());
+
+        if(value === ''){
+            setSuggestions({
+                name : key,
+                values : [],
+            })
+        }else{
+            setSuggestions({
+                name : key,
+                values : brands[key].filter((el) => el.toString().toLowerCase().startsWith(value.toLowerCase())),
+            })
+        }
+
+        setNewPhone({...newPhone,  [key] : value });
+    }
+
+
+    //on Sending the form
+    const sendingForm = (e) =>{
+        e.preventDefault();
+        console.log(newPhone);
     }
 
   return (
@@ -62,38 +99,84 @@ const AddPhone = () => {
                 </div>
                 <div className="content_bloc">
                     <div className="title">
-                        <h1>
-                            Ajouter un smartphone
-                        </h1>
+                        <h1>Ajouter un smartphone</h1>
                         <p className='subtitle'>Veuillez renseigner les champs ci-dessous</p>
                     </div>
-                    <form action="">
+                    <form method="post" action="http://localhost:5080/api/phones" onSubmit={sendingForm}>
                         <div className="field">
                             <label htmlFor="brand">Marque</label>
-                            <input type="text" name="brand" id="brand" required placeholder='Marque' onChange={inputChange}/>
+                            <input type="text" name="brand" id="brand" required placeholder='Marque' value={newPhone.brand} onChange={inputChange}/>
+                            {suggestions.values && suggestions.name === "brand"
+                                ?<ul className="suggestions">
+                                    {suggestions.values.map((el, i) => (
+                                        <li key={i}>{el}</li>
+                                    ))}
+                                </ul>
+                                : null
+                            }
                         </div>
                         <div className="field">
                             <label htmlFor="model">Modèle</label>
-                            <input type="text" name="model" id="model" required placeholder='Modèle' onChange={inputChange}/>
+                            <input type="text" name="model" id="model" required placeholder='Modèle' value={newPhone.model} onChange={inputChange}/>
+                            {suggestions.values && suggestions.name === "model"
+                                ?<ul className="suggestions">
+                                    {suggestions.values.map((el, i) => (
+                                        <li key={i}>{el}</li>
+                                    ))}
+                                </ul>
+                                : null
+                            }
                         </div>
                         <div className="field_split">
                             <div className="field">
                                 <label htmlFor="storage">Stockage</label>
-                                <input type="text" name="storage" id="storage" required placeholder='Mémoire de stockage' onChange={inputChange}/>
+                                <input type="number" name="storage" id="storage" required placeholder='Mémoire de stockage' value={newPhone.storage} onChange={inputChange}/>
+                                {suggestions.values && suggestions.name === "storage"
+                                    ?<ul className="suggestions">
+                                        {suggestions.values.map((el, i) => (
+                                            <li key={i}>{el}</li>
+                                        ))}
+                                    </ul>
+                                    : null
+                                }
                             </div>
                             <div className="field">
                                 <label htmlFor="ram">Mémoire RAM</label>
-                                <input type="text" name="ram" id="ram" required placeholder='Mémoire RAM' onChange={inputChange}/>
+                                <input type="number" name="ram" id="ram" required placeholder='Mémoire RAM' value={newPhone.ram} onChange={inputChange}/>
+                                {suggestions.values && suggestions.name === "ram"
+                                    ?<ul className="suggestions">
+                                        {suggestions.values.map((el, i) => (
+                                            <li key={i}>{el}</li>
+                                        ))}
+                                    </ul>
+                                    : null
+                                }
                             </div>
                         </div>
                         <div className="field_split">
                             <div className="field">
                                 <label htmlFor="screen">Écran</label>
-                                <input type="text" name="screen" id="screen" required placeholder="Taille de l'écran" onChange={inputChange}/>
+                                <input type="number" name="screen" id="screen" required placeholder="Taille de l'écran" value={newPhone.screen} onChange={inputChange}/>
+                                {suggestions.values && suggestions.name === "screen"
+                                    ?<ul className="suggestions">
+                                        {suggestions.values.map((el, i) => (
+                                            <li key={i}>{el}</li>
+                                        ))}
+                                    </ul>
+                                    : null
+                                }
                             </div>
                             <div className="field">
                                 <label htmlFor="gsm">Réseau</label>
                                 <input type="text" name="gsm" id="gsm" required placeholder='Réseau' onChange={inputChange}/>
+                                {suggestions.values && suggestions.name === "gsm"
+                                    ?<ul className="suggestions">
+                                        {suggestions.values.map((el, i) => (
+                                            <li key={i}>{el}</li>
+                                        ))}
+                                    </ul>
+                                    : null
+                                }
                             </div>
                         </div>
                         <button type='submit'>Ajouter un smartphone</button>
