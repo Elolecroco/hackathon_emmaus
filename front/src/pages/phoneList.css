@@ -9,6 +9,7 @@
 .list_content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
   background-color: var(--lightest-color);
@@ -20,6 +21,7 @@
 .top {
   display: flex;
   width: 100%;
+  height: 20%;
   justify-content: space-between;
 }
 
@@ -27,6 +29,7 @@
   background-color: var(--dark-color);
   color: var(--lightest-color);
   font-weight: 600;
+  height: fit-content;
   letter-spacing: 0.15em;
   padding: 0.7em 1.5em;
   border-radius: 1.5em;
@@ -34,6 +37,7 @@
 
 .table {
   width: 100%;
+  height: 70%;
   display: flex;
   flex-direction: column;
 }
@@ -43,7 +47,7 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
-  padding: 1.5em;
+  padding: 1em;
 }
 
 .header {
@@ -69,4 +73,9 @@
 .ram {
   width: 15%;
   text-align: center;
+}
+
+.navButtons {
+  padding: 2em;
+  height: 10%;
 }

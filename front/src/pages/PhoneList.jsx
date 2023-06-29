@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const PhoneList = () => {
   const [phones, setPhones] = useState([]);
 
-  const resultsPerPage = 8; // Change this value as per your requirement
+  const resultsPerPage = 10; // Change this value as per your requirement
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -65,7 +65,7 @@ const PhoneList = () => {
                 </div>
               ))}
           </div>
-          <div>
+          <div className="navButtons">
             <button onClick={handlePreviousClick} disabled={currentPage === 1}>
               Previous
             </button>
