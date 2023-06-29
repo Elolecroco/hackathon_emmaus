@@ -1,6 +1,14 @@
 .resume_background{
     width: 30%;
-    height: 20em;
     background-color: var(--lightest-color);
+    padding: 1em 2em;
     border-radius: 1em;
+}
+
+.resume_section{
+    display: flex;
+    margin-bottom: 1em;
+    justify-content: space-between;
+    border-bottom: solid 2px var(--faded-color);
+    padding: 1em;
 }

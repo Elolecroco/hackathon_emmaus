@@ -7,7 +7,11 @@
     align-items: center;
     justify-content: flex-start;
     background-color: var(--lightest-color);
+<<<<<<< HEAD
     z-index: 10;
+=======
+    z-index: 100;
+>>>>>>> dev
 }
 
 .navbar-container>a {
@@ -29,7 +33,7 @@
     align-items: center;
     gap: 5em;
 }
-.smartphone-options>p {
+.smartphone-options>a {
     height: 100%;
     width: 15%;
     border-bottom: 5px solid transparent;
@@ -39,7 +43,9 @@
     color: var(--dark-color);
     cursor: pointer;
 }
-.smartphone-options>p:hover {
+
+.smartphone-options>a:hover,
+.smartphone-options>a.active {
     border-bottom: 5px solid var(--highlight-color);
 }
 
