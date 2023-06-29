@@ -6,7 +6,12 @@ const app = express();
 const port = process.env.APP_PORT ?? 5002;
 
 const APIRouter = express.Router();
-const { phoneRouter, historyRouter, userRouter } = require("./src/routes");
+const {
+  phoneRouter,
+  historyRouter,
+  userRouter,
+  configRouter,
+} = require("./src/routes");
 
 //resolving cors issue from fetching from diffrent origins
 const cors = require("cors");
@@ -30,6 +35,7 @@ APIRouter.get("/version", function (req, res) {
 APIRouter.use("/phones", phoneRouter);
 APIRouter.use("/history", historyRouter);
 APIRouter.use("/users", userRouter);
+APIRouter.use("/config", configRouter);
 
 app.listen(port, function () {
   console.log(`API is running on port ${port}`);

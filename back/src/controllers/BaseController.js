@@ -25,6 +25,12 @@ class BaseController {
     });
   }
 
+  updateItem() {
+    this.model.updateItem(this.req.body).then(([result]) => {
+      this.res.sendStatus(200);
+    });
+  }
+
   sendJson(data) {
     this.res.status(200).json(data);
   }
