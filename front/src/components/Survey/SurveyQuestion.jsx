@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "./surveyQuestion.css";
 import Section1 from "./sectionQuestion/Section1";
 import Section2 from "./sectionQuestion/Section2";
@@ -33,7 +33,6 @@ const SurveyQuestion = ({
   setSeeSection4,
   setSeeSection5,
 }) => {
-  const [phoneData, setPhoneData] = useState(["lalalal", "lala", "la"]);
 
   const goTOSection2 = () => {
     setSeeSection1(false);
@@ -70,13 +69,9 @@ const SurveyQuestion = ({
   return (
     <div className="question_background">
       {seeSection1 ?  <Section1
-        selectedBrand={selectedBrand}
-        selectedModel={selectedModel}
-        selectedStorage={selectedStorage}
         setSelectedBrand={setSelectedBrand}
         setSelectedModel={setSelectedModel}
         setSelectedStorage={setSelectedStorage}
-        phoneData ={phoneData}
         goTOSection2 ={goTOSection2}
       />
       : seeSection2 ?
