@@ -1,8 +1,11 @@
 import React from "react";
 
-const Section5 = ({ selectedGlobalQuality, setSelectedGlobalQuality }) => {
+const Section5 = ({ selectedGlobalQuality, setSelectedGlobalQuality, setSeeAllInformation }) => {
   const handleFonctionalQualityChange = (event) => {
     setSelectedGlobalQuality(event.target.value);
+  };
+  const handleSeeAllInformation = (event) => {
+    setSeeAllInformation(true);
   };
 
   return (
@@ -63,6 +66,7 @@ const Section5 = ({ selectedGlobalQuality, setSelectedGlobalQuality }) => {
           </div>
         </label>
       </div>
+      <button onClick={handleSeeAllInformation}>Vérifier le téléphone</button>
     </div>
   );
 };

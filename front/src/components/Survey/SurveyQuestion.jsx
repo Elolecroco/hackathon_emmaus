@@ -33,6 +33,7 @@ const SurveyQuestion = ({
   setSeeSection3,
   setSeeSection4,
   setSeeSection5,
+  setSeeAllInformation
 }) => {
 
   const goTOSection2 = () => {
@@ -87,7 +88,7 @@ const SurveyQuestion = ({
       : seeSection4 ?
         <Section4 setSelectedStructurePhoneQuality={setSelectedStructurePhoneQuality} goTOSection5={goTOSection5} selectedStructurePhoneQuality ={selectedStructurePhoneQuality} />
       : seeSection5 ?
-       <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality}/>
+       <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality} setSeeAllInformation={setSeeAllInformation}/>
       : null
       }
      

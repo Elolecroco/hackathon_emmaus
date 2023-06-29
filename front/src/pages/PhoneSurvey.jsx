@@ -5,6 +5,7 @@ import SurveyResume from "../components/Survey/SurveyResume";
 import SurveyQuestion from "../components/Survey/SurveyQuestion";
 import CategoryCalc from "../components/Calc/CategoryCalc";
 import "./phoneSurvey.css";
+import SurveyAllInformation from "../components/Survey/SurveyAllInformation";
 
 const PhoneSurvey = () => {
   const [selectedBrand, setSelectedBrand] = useState("");
@@ -20,8 +21,7 @@ const PhoneSurvey = () => {
   const [seeSection3, setSeeSection3] = useState(false);
   const [seeSection4, setSeeSection4] = useState(false);
   const [seeSection5, setSeeSection5] = useState(false);
-
-  
+  const [seeAllInformation, setSeeAllInformation] = useState(false);
 
   return (
     <div>
@@ -54,7 +54,7 @@ const PhoneSurvey = () => {
             selectedModel={selectedModel}
             selectedStorage={selectedStorage}
             selectedScreenQuality={selectedScreenQuality}
-            selectedGlobalQuality ={selectedGlobalQuality}
+            selectedGlobalQuality={selectedGlobalQuality}
             selectedStructurePhoneQuality={selectedStructurePhoneQuality}
             phoneRam={phoneRam}
             setSelectedStructurePhoneQuality ={setSelectedStructurePhoneQuality}
@@ -75,6 +75,7 @@ const PhoneSurvey = () => {
             seeSection3={seeSection3}
             seeSection4={seeSection4}
             seeSection5={seeSection5}
+            setSeeAllInformation={setSeeAllInformation}
           />
           <CategoryCalc 
             selectedStorage={selectedStorage}
@@ -85,6 +86,18 @@ const PhoneSurvey = () => {
             phoneRam={phoneRam}
           />
         </div>
+        {seeAllInformation ? (
+          <SurveyAllInformation
+            selectedBrand={selectedBrand}
+            selectedModel={selectedModel}
+            selectedStorage={selectedStorage}
+            selectedScreenQuality={selectedScreenQuality}
+            selectedGlobalQuality={selectedGlobalQuality}
+            unlockedSim={unlockedSim}
+            selectedStructurePhoneQuality={selectedStructurePhoneQuality}
+            setSeeAllInformation={setSeeAllInformation}
+          />
+        ) : null}
       </div>
     </div>
   );
