@@ -56,6 +56,8 @@ const PhoneList = () => {
               <div className="model">Modele</div>
               <div className="storage">Stockage</div>
               <div className="ram">RAM</div>
+              <div className="screen">Ecran</div>
+              <div className="gsm">Reseau</div>
             </div>
 
             {currentResults &&
