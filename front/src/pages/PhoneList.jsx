@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const PhoneList = () => {
   const [phones, setPhones] = useState([]);
 
-  const resultsPerPage = 10; // Change this value as per your requirement
+  const resultsPerPage = 8; // Change this value as per your requirement
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -26,7 +26,7 @@ const PhoneList = () => {
   }, []);
 
   useEffect(() => {
-    const calculatedTotalPages = Math.ceil(phones / resultsPerPage);
+    const calculatedTotalPages = Math.ceil(phones.length / resultsPerPage);
     setTotalPages(calculatedTotalPages);
   }, [phones.length, resultsPerPage]);
 
