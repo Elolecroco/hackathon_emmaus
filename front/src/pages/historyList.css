@@ -2,14 +2,11 @@
   background-color: var(--bg-color);
   display: flex;
   justify-content: center;
-  height: 100vh;
-  padding: 4em;
 }
 
-.history_background h1{
+.history_background h1 {
   font-weight: 600;
   font-size: 1.7em;
-  margin-bottom: .25em;
 }
 
 .history_content {
@@ -20,8 +17,16 @@
   width: 90%;
   background-color: var(--lightest-color);
   border-radius: 1.5em;
-  gap: 4em;
   padding: 4em;
+  gap: 1em;
+  margin: 4em 0;
+}
+
+.history_list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
 }
 
 .history_top {
@@ -30,18 +35,8 @@
   justify-content: space-between;
 }
 
-.history_top button {
-  background-color: var(--dark-color);
-  color: var(--lightest-color);
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  padding: 0.7em 1.5em;
-  border-radius: 1.5em;
-}
-
 .history_table {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -85,4 +80,12 @@
 .history_price {
   width: 10%;
   text-align: center;
+}
+
+.navButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 2em 0 0 0;
 }

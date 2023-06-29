@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQuality}) => {
-  
-
+const Section3 = ({
+  goTOSection4,
+  setSelectedScreenQuality,
+  selectedScreenQuality,
+}) => {
   const handleScreenQualityChange = (event) => {
     setSelectedScreenQuality(event.target.value);
   };
-
-
 
   return (
     <div className="question_section">
@@ -27,9 +27,10 @@ const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQualit
         <div className="chekbox_text">
           <p className="section_title_screen">Parfait état</p>
           <p>
-            Parfait état, aucune rayure ni marque d'usure n'est visible. L'écran
-            est fonctionnel et ne présente aucun pixel défectueux (ex: écran
-            fantôme, écran brûlé, pixels morts). Le tactile est opérationnel.
+            L'état est impeccable, sans rayures ni marques d'usure apparentes.
+            L'écran fonctionne parfaitement, sans aucun problème de pixels (ex :
+            écran fantôme, brûlure d'écran, pixels morts). Le tactile est
+            entièrement fonctionnel.
           </p>
         </div>
       </label>
@@ -49,10 +50,11 @@ const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQualit
         <div className="chekbox_text">
           <p className="section_title_screen">Très bon état</p>
           <p>
-            Peut présenter des micro-rayures à peine visibles (invisibles à 20
-            cm), sans fissure et/ou impact. L'écran est fonctionnel et ne
-            présente aucun pixel défectueux (ex: écran fantôme, écran brûlé,
-            pixels morts). Le tactile est opérationnel.
+            Il peut présenter de légères micro-rayures à peine perceptibles
+            (invisibles à 20 cm), sans fissures ni impacts. L'écran fonctionne
+            correctement, sans aucun problème de pixels défectueux (ex : écran
+            fantôme, brûlure d'écran, pixels morts). Le tactile est entièrement
+            fonctionnel.
           </p>
         </div>
       </label>
@@ -72,10 +74,11 @@ const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQualit
         <div className="chekbox_text">
           <p className="section_title_screen">Etat correct</p>
           <p>
-            Peut présenter des traces d’usure visibles, des rayures profondes
-            et/ou petits impacts. L'écran est fonctionnel et ne présente aucun
-            pixel défectueux (ex: écran fantôme, écran brûlé, pixels morts). Le
-            tactile est opérationnel.
+            Des signes d'usure visibles, des rayures profondes et/ou de petits
+            impacts peuvent être présents. Cependant, l'écran fonctionne
+            correctement et ne présente aucun pixel défectueux (ex : écran
+            fantôme, brûlure d'écran, pixels morts). Le tactile est en parfait
+            état de fonctionnement
           </p>
         </div>
       </label>
@@ -95,10 +98,10 @@ const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQualit
         <div className="chekbox_text">
           <p className="section_title_screen">Cassé</p>
           <p>
-            Peut présenter au moins une fissure ou est visiblement cassé.
-            L'écran peut ne pas être fonctionnel et peut présenter des pixels
-            défectueux (ex: écran fantôme, écran brûlé, pixels morts) et des
-            problèmes de tactile.
+            Il est possible qu'il y ait au moins une fissure ou une casse
+            visible. Dans ce cas, l'écran peut ne pas fonctionner correctement
+            et présenter des pixels défectueux (ex: écran fantôme, écran brûlé,
+            pixels morts) ainsi que des problèmes de tactile.
           </p>
         </div>
       </label>

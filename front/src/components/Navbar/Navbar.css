@@ -1,33 +1,56 @@
 .navbar-container {
-    height: 5.5em;
     width: 100%;
-    position: fixed;
     top: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: var(--lightest-color);
     z-index: 100;
+    padding: 1.3em 1.5em 0 .7em;
+    height: 6.5em;
 }
 
-.navbar-container>a {
+.logo-container {
+
+    padding-bottom: .7em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3em;
+}
+
+.logo{
     height: 7em;
-    margin: 0 5em 0 1em ;
 }
 
-.logo-container,
-.logo-container>img {
-    width: 100%;
+.menu_entries{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 80%;
     height: 100%;
+    gap: .7em;
+}
+
+.user_profile{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.user_profile .user_fullname{
+    color:var(--faded-color-2);
+    font-size : .8em
 }
 
 .smartphone-options {
     height: 100%;
-    width: 72%;
-    margin-right: 1em;
     display: flex;
     align-items: center;
-    gap: 5em;
+    justify-content: flex-end;
+    gap: 4.4em;
+    flex: 1;
 }
 .smartphone-options>a {
     height: 100%;
@@ -42,13 +65,53 @@
 
 .smartphone-options>a:hover,
 .smartphone-options>a.active {
-    border-bottom: 5px solid var(--highlight-color);
+    border-bottom: 4px solid var(--highlight-color);
 }
 
 .user-icon {
-    height: 2em;
-    width: 2em;
-    margin-right: 1em;
-    fill: var(--dark-color);
+    height: 1.5em;
+    width: 1.5em;
+    fill: var(--faded-color-2);
     cursor: pointer;
+}
+
+.user-icon:hover {
+    fill: var(--dark-color);
+}
+
+.menu_logout{
+    position: absolute;
+    right: 1.25em;
+    top : 3.2em;
+    background-color: var(--lightest-color);
+    padding: 2em;
+    filter: drop-shadow(0 .15em 0.1em #0000002b);
+    border-radius: .25em;
+    z-index: 110;
+    cursor: pointer;
+}
+
+.logout_container,
+.parameters_container{
+    display: flex;
+    justify-content: flex-start;
+    gap: .7em;
+    margin-bottom: 1em;
+}
+
+.parameters_container{
+    margin-bottom: 0;
+}
+
+.invisible{
+    display: none;
+}
+
+
+/*----------------Media queries--------------*/
+
+@media screen and (max-width : 860px) {
+    .menu_entries{
+        display: none;
+    }
 }

@@ -15,8 +15,7 @@ const Section2 = ({setUnlockedSim, goTOSection3}) => {
           <div className='section2-info-header'>
             <LiaInfoCircleSolid /> <p>Où trouver l'information ?</p>
           </div>
-          <p>Pour savoir si votre appareil est débloqué ou désimlocké, il vous suffit de mettre la carte SIM d'un autre opérateur téléphonique dans votre appareil. Si vous captez le réseau, c’est que votre appareil est débloqué.
-            Vous pouvez toujours contacter votre opérateur pour le débloquer.</p>
+          <p>Pour vérifier si votre appareil est débloqué ou désimlocké, insérez simplement une carte SIM d'un autre opérateur dans votre téléphone. Si vous avez du réseau, c'est qu'il est débloqué. Vous pouvez aussi contacter votre opérateur pour le déverrouiller.</p>
         </div>
         <div className="section2_choice">
           <div className='section2_question'>
@@ -26,7 +25,7 @@ const Section2 = ({setUnlockedSim, goTOSection3}) => {
             <LiaInfoCircleSolid className='section2_info_icon' onClick={displayInfo}/>
             {showInfo == true ? 
             <div className='section2_showInfo'>
-              <p>Pour savoir si votre appareil est débloqué ou désimlocké, il vous suffit de mettre la carte SIM d'un autre opérateur téléphonique dans votre appareil. Si vous captez le réseau, c’est que votre appareil est débloqué. Vous pouvez toujours contacter votre opérateur pour le débloquer.</p>
+              <p>Pour vérifier si votre appareil est débloqué ou désimlocké, insérez simplement une carte SIM d'un autre opérateur dans votre téléphone. Si vous avez du réseau, c'est qu'il est débloqué. Vous pouvez aussi contacter votre opérateur pour le déverrouiller.</p>
             </div> : <></>}
           </div>
           

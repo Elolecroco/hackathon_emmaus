@@ -13,6 +13,8 @@ const SurveyQuestion = ({
   selectedModel,
   selectedStorage,
   selectedScreenQuality,
+  setSelectedPhoneObject,
+  selectedPhoneObject,
   phoneRam,
   seeSection1,
   seeSection2,
@@ -33,9 +35,12 @@ const SurveyQuestion = ({
   setSeeSection3,
   setSeeSection4,
   setSeeSection5,
-  setSeeAllInformation
+  setSeeAllInformation,
+  setSelectedScreen,
+  setSelectedGsm
 }) => {
-
+  
+  
   const goTOSection2 = () => {
     setSeeSection1(false);
     setSeeSection2(true);
@@ -77,7 +82,11 @@ const SurveyQuestion = ({
         selectedModel={selectedModel}
         setSelectedStorage={setSelectedStorage}
         selectedStorage={selectedStorage}
+        setSelectedPhoneObject={setSelectedPhoneObject}
+        selectedPhoneObject={selectedPhoneObject}
         setPhoneRam={setPhoneRam}
+        setSelectedScreen={setSelectedScreen}
+        setSelectedGsm={setSelectedGsm}
         phoneRam={phoneRam}
         goTOSection2 ={goTOSection2}
       />

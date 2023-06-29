@@ -80,6 +80,14 @@ input[type="radio"]:checked::before {
     font-size: 0.8em;
 }
 
+.memory_select_input{
+    padding: .7em 1.5em;
+    border: none;
+    border-radius: .5em;
+    background-color: var(--bg-color);
+    width: 80%;
+}
+
 /* Section 3 */
 
 .select_section_three{
@@ -109,20 +117,20 @@ input[type="radio"]:checked::before {
 
 /* section 5 */ 
 
-ul{
+.list_section{
     margin-top: 1em ;
     margin-bottom: 2em;
     list-style-type: none;
     padding-left: 1em;
 }
 
-li::before {
+.button_list_section::before {
     content: "•"; 
     color: var(--dark-color); 
     margin-right: 0.5em; 
   }
 
-li{
+.button_list_section{
    margin-bottom: 0.5em;
 }
 
@@ -225,6 +233,11 @@ button:hover{
 @media (max-width: 860px) {
     .question_background{
         width: 100%;
-
+    }
+    #section1_brand,
+    #section1_model,
+    #section1_storage,
+    .memory_select_input {
+        width: 100%;
     }
 }

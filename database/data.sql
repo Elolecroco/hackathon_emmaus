@@ -131,4 +131,8 @@ VALUES
 ('Gerard', 'MENVUSSA', "g.menvussa@emmaus-connect.fr", "J'aimelepate", "user"),
 ('Enora', 'PALTANT', "e.paltant@emmaus-connect.fr", "J'aimelepate", "admin");
 
+INSERT INTO config (storage, ram, screen, gsm)
+VALUES 
+( 16, 2, 5, '4G' );
+
 

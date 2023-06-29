@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: start;
     position: relative;
+    min-height: 90vh;
 }
 
 .add_phone_page .bg_decoration{

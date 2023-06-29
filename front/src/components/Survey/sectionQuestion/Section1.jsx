@@ -1,20 +1,24 @@
 import { useState, useEffect } from "react";
-import axios from 'axios';
-import '../surveyQuestion.css';
+import axios from "axios";
+import "../surveyQuestion.css";
 
 const Section1 = ({
   setSelectedBrand,
-  selectedBrand,
   setSelectedModel,
-  selectedModel,
   setSelectedStorage,
-  selectedStorage,
   setPhoneRam,
-  phoneRam,
-  goTOSection2
+  setSelectedPhoneObject,
+  selectedPhoneObject,
+  goTOSection2,
+  setSelectedGsm,
+  setSelectedScreen,
+  selectedBrand,
+  selectedModel,
 }) => {
-
   const [data, setData] = useState([]);
+
+  const [minConfig, setMinConfig] = useState([]);
+
   const [phoneData, setPhoneData] = useState({
     brand: "",
     model: "",
@@ -27,22 +31,46 @@ const Section1 = ({
   });
 
   useEffect(() => {
-    axios.get('http://localhost:5080/api/phones')
-      .then(res => setData(res.data))
-      .catch(err => console.error(err));
+    axios
+      .get("http://localhost:5080/api/phones")
+      .then((res) => setData(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
-  const brands = data?.reduce((acc, { brand, model, storage, ram }) => {
-    if (!acc.brand.includes(brand)) acc.brand.push(brand);
-    if (!acc.model.includes(model)) acc.model.push(model);
-    if (!acc.storage.includes(storage)) acc.storage.push(storage);
-    if (!acc.ram.includes(ram)) acc.ram.push(ram);
-    return acc;
-  }, { brand: [], model: [], storage: [], ram: [] });
 
-  brands && brands.storage.sort((a, b) => {
-    return a - b;
-  });
+  useEffect(() => {
+    axios
+      .get("http://localhost:5080/api/config")
+      .then((res) => setMinConfig(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+
+  const [selectedPhone, setSelectedPhone] = useState();
+
+  const handleSelectedStorage = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedPhone(selectedValue);
+    setSelectedPhoneObject(
+      storageAvailable.filter((el) => el.storage === parseInt(selectedValue))
+    );
+  };
+
+  const brands = data?.reduce(
+    (acc, { brand, model, storage, ram }) => {
+      if (!acc.brand.includes(brand)) acc.brand.push(brand);
+      if (!acc.model.includes(model)) acc.model.push(model);
+      if (!acc.storage.includes(storage)) acc.storage.push(storage);
+      if (!acc.ram.includes(ram)) acc.ram.push(ram);
+      return acc;
+    },
+    { brand: [], model: [], storage: [], ram: [] }
+  );
+
+  brands &&
+    brands.storage.sort((a, b) => {
+      return a - b;
+    });
 
   const inputChange = (e) => {
     let key = e.target.name;
@@ -56,33 +84,33 @@ const Section1 = ({
     } else {
       setSuggestions({
         name: key,
-        values: brands[key].filter(el => el.toString().toLowerCase().startsWith(value.toLowerCase())),
+        values: brands[key].filter((el) =>
+          el.toString().toLowerCase().startsWith(value.toLowerCase())
+        ),
       });
     }
-    
+
     if (key === "brand") {
       setPhoneData({ ...phoneData, brand: value, model: "", storage: "" });
       setSelectedBrand(value);
       setSelectedModel("");
       setSelectedStorage("");
-      setPhoneRam("")
+      setPhoneRam("");
     } else if (key === "model") {
       setPhoneData({ ...phoneData, model: value, storage: "" });
       setSelectedModel(value);
       setSelectedStorage("");
-      setPhoneRam("")
+      setPhoneRam("");
     } else if (key === "storage") {
       setPhoneData({ ...phoneData, storage: value });
       setSelectedStorage(value);
-    
-      if (phoneData.brand && phoneData.model && phoneData.storage) {
-        const phone = data.find(
-          (item) =>
 
-            item.model === phoneData.model 
-        );
+      if (phoneData.brand && phoneData.model && phoneData.storage) {
+        const phone = data.find((item) => item.model === phoneData.model);
         if (phone) {
           setPhoneRam(phone.ram);
+          setSelectedGsm(phone.gsm);
+          setSelectedScreen(phone.screen);
         } else {
           setPhoneRam("");
         }
@@ -92,8 +120,6 @@ const Section1 = ({
     }
   };
 
-  console.log(phoneRam);
-  
   const selectSuggestion = (value) => {
     const { name } = suggestions;
     setPhoneData({ ...phoneData, [name]: value });
@@ -109,11 +135,18 @@ const Section1 = ({
     }
   };
 
+  const modelAvailable = data.filter((el) => el.brand === selectedBrand);
+  const storageAvailable = data.filter((el) => el.model === selectedModel);
+
+
+  console.log(minConfig);
+
   return (
     <div className="question_section">
-
       <div className="section_list">
-        <label htmlFor="section1_brand">Quelle est la marque du téléphone ?</label>
+        <label htmlFor="section1_brand">
+          Quelle est la marque du téléphone ?
+        </label>
         <input
           type="text"
           name="brand"
@@ -126,14 +159,18 @@ const Section1 = ({
         {suggestions.values && suggestions.name === "brand" ? (
           <ul className="suggestions">
             {suggestions.values.map((el, i) => (
-              <li key={i} onClick={() => selectSuggestion(el)}>{el}</li>
+              <li key={i} onClick={() => selectSuggestion(el)}>
+                {el}
+              </li>
             ))}
           </ul>
         ) : null}
       </div>
 
       <div className="section_list">
-        <label htmlFor="section1_model">Quel est le modèle du téléphone ?</label>
+        <label htmlFor="section1_model">
+          Quel est le modèle du téléphone ?
+        </label>
         <input
           type="text"
           name="model"
@@ -145,31 +182,32 @@ const Section1 = ({
         />
         {suggestions.values && suggestions.name === "model" ? (
           <ul className="suggestions">
-            {suggestions.values.map((el, i) => (
-              <li key={i} onClick={() => selectSuggestion(el)}>{el}</li>
+            {modelAvailable.map((el, i) => (
+              <li key={i} onClick={() => selectSuggestion(el.model)}>
+                {el.model}
+              </li>
             ))}
           </ul>
         ) : null}
       </div>
 
       <div className="section_list">
-        <label htmlFor="section1_storage">Quel est le stockage du téléphone ?</label>
-        <input
-          type="number"
-          name="storage"
-          id="section1_storage"
-          required
-          placeholder="Mémoire de stockage"
-          value={phoneData.storage}
-          onChange={inputChange}
-        />
-        {suggestions.values && suggestions.name === "storage" ? (
-          <ul className="suggestions">
-            {suggestions.values.map((el, i) => (
-              <li key={i} onClick={() => selectSuggestion(el)}>{el}</li>
-            ))}
-          </ul>
-        ) : null}
+        <label htmlFor="memory">
+          Quel est la capacité de stockage du téléphone ?
+        </label>
+        <select
+          className="memory_select_input"
+          name="memory"
+          id="memory"
+          value={selectedPhone}
+          onClick={handleSelectedStorage}
+        >
+          {storageAvailable.map((el, index) => (
+            <option key={index} value={el.storage}>
+              {el.storage}
+            </option>
+          ))}
+        </select>
       </div>
 
       <button onClick={goTOSection2}>Continuer</button>

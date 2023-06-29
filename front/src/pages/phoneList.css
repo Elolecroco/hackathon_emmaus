@@ -2,14 +2,11 @@
   background-color: var(--bg-color);
   display: flex;
   justify-content: center;
-  height: 100vh;
-  padding: 4em;
 }
 
-.list_background h1{
+.list_background h1 {
   font-weight: 600;
   font-size: 1.7em;
-  margin-bottom: .25em;
 }
 
 .list_content {
@@ -20,15 +17,23 @@
   width: 90%;
   background-color: var(--lightest-color);
   border-radius: 1.5em;
-  gap: 4em;
   padding: 4em;
+  margin: 4em 0;
+  gap: 1em;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
 }
 
 .top {
   display: flex;
   width: 100%;
-  height: 20%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .top a {
@@ -42,7 +47,6 @@
 
 .table {
   width: 100%;
-  height: 70%;
   display: flex;
   flex-direction: column;
 }
@@ -66,12 +70,18 @@
   background-color: var(--bg-color);
 }
 
-.brand,
+.brand {
+  width: 15%;
+}
+
 .model {
   width: 25%;
 }
 
-.storage,
+.storage {
+  width: 20%;
+  text-align: center;
+}
 .gsm,
 .ram {
   width: 10%;
@@ -81,9 +91,4 @@
 .screen {
   width: 20%;
   text-align: center;
-}
-
-.navButtons {
-  padding: 2em;
-  height: 10%;
 }
