@@ -7,7 +7,7 @@
     position: relative;
 }
 
-.bg_decoration{
+.add_phone_page .bg_decoration{
     height: 100%;
     position: absolute;
     top: 0;
@@ -16,7 +16,7 @@
     background-color: var(--dark-color);
 }
 
-.add_phone_box{
+.add_phone_page .add_phone_box{
     margin: 4em 0;
     width:90%;
     background-color: var(--lightest-color);
@@ -27,18 +27,18 @@
     position: relative;
 }
 
-.image_bloc{
+.add_phone_page .image_bloc{
     width: 40%;
     padding: 2.5em 0 2.5em 0;
 }
 
-.image_bloc img{
+.add_phone_page .image_bloc img{
     width: 100%;
     position: relative;
     left: -8%;   
 }
 
-.content_bloc{
+.add_phone_page .content_bloc{
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -46,44 +46,44 @@
     padding: 2.5em 2em 2.5em 0;
 }
 
-.content_bloc h1{
+.add_phone_page .content_bloc h1{
     font-weight: 600;
     font-size: 1.5em;
     margin-bottom: .25em;
 }
 
-.content_bloc .subtitle{
+.add_phone_page .content_bloc .subtitle{
     color: var(--faded-color);
     font-weight: 300;
     font-size: .95em;
 }
 
-form{
+.add_phone_page form{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 1.5em;
 }
 
-.field{
+.add_phone_page .field{
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
 }
 
-.field_split{
+.add_phone_page .field_split{
     display: flex;
     width: 100%;
     gap: 1.5em;
     position: relative;
 }
 
-label{
+.add_phone_page label{
     margin-bottom: .8em;
 }
 
-input{
+.add_phone_page input{
     padding: .5em 1.5em;
     border: none;
     background-color: var(--bg-color);
@@ -96,7 +96,7 @@ input{
     
 }  
 
-.suggestions{
+.add_phone_page .suggestions{
     position: absolute;
     top: 4.3em;
     border-radius: .15em;
@@ -106,13 +106,13 @@ input{
     filter: drop-shadow(0 .15em 0.1em #0000002b);
 }
 
-.suggestions li{
+.add_phone_page .suggestions li{
     margin: .25em 0;
     list-style-type: none;
 }
 
 
-button{
+.add_phone_page button{
     background-color: var(--dark-color);
     color: var(--lightest-color);
     padding: .7em 1.5em;
@@ -124,22 +124,22 @@ button{
 
 /*------------------- MEDIA QUERIES -------------------*/
 @media screen and (max-width : 860px){
-    .image_bloc{
+    .add_phone_page .image_bloc{
         display: none;
     }    
 
-    .content_bloc{
+    .add_phone_page .content_bloc{
         padding: 2.5em 2em;
         width: 100%;
     }    
       
-    form{
+    .add_phone_page form{
         align-items: center;
     }
 }
 
 @media screen and (max-width : 600px){
-    .field_split{
+    .add_phone_page .field_split{
         flex-direction: column;
     }  
 }
