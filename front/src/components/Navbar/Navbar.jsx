@@ -34,12 +34,14 @@ const Navbar = ({removeToken, token}) => {
                             <MdLogout className='logout-icon'/>
                             <p className="logout">Se déconnecter</p>
                         </div>
-                        <NavLink to='/minconfig' className={splitLocation[1] === "minconfig" ? "active" : ""}>
+                        {token && token.role === "admin" 
+                        ? <NavLink to='/minconfig' className={splitLocation[1] === "minconfig" ? "active" : ""}>
                             <div className="parameters_container">
                                 <MdSettings className='logout_burger-icon'/>
                                 <p className="logout">Paramètres</p>
                             </div>
-                    </NavLink>
+                        </NavLink>
+                        : null}
                 </div>
                 <div className='smartphone-options'>
                     <NavLink to='/phonesurvey' className={splitLocation[1] === "phonesurvey" ? "active" : ""}>
