@@ -3,8 +3,10 @@ import "./historyList.css";
 import axios from "axios";
 import History from "../components/History/History";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 const HistoryList = () => {
+  const maxWidth850 = useMediaQuery("(max-width: 860px)");
   const [phones, setPhones] = useState([]);
 
   const resultsPerPage = 10; // Change this value as per your requirement
@@ -45,48 +47,48 @@ const HistoryList = () => {
     <div>
       <div className="history_background">
         <div className="history_content">
-          <div className="history_top">
-            <h1>Historique</h1>
-          </div>
-          <div className="history_table">
-            <div className="history_header">
-              <div className="history_brand">Marque</div>
-              <div className="history_model">Modele</div>
-              <div className="history_storage">Stockage</div>
-              <div className="history_ram">RAM</div>
-              <div className="history_screen">Ecran</div>
-              <div className="history_gsm">Reseau</div>
-              <div className="history_rank">Rang</div>
-              <div className="history_price">Prix</div>
+          <div className="history_list">
+            <div className="history_top">
+              <h1>Historique</h1>
             </div>
-
-            {currentResults &&
-              currentResults.map((phone) => (
-                <div className="history_line" key={phone.id}>
-                  <History props={phone} />
-                </div>
-              ))}
+            <div className="history_table">
+              <div className="history_header">
+                <div className="history_brand">Marque</div>
+                <div className="history_model">Modele</div>
+                <div className="history_storage">Stockage</div>
+                {!maxWidth850 ? <div className="history_ram">RAM</div> : null}
+                {!maxWidth850 ? (
+                  <div className="history_screen">Ecran</div>
+                ) : null}
+                {!maxWidth850 ? (
+                  <div className="history_gsm">Reseau</div>
+                ) : null}
+                <div className="history_rank">Rang</div>
+                <div className="history_price">Prix</div>
+              </div>
+              {currentResults &&
+                currentResults.map((phone) => (
+                  <div className="history_line" key={phone.id}>
+                    <History props={phone} />
+                  </div>
+                ))}
+            </div>
           </div>
-          <div>
-            <button onClick={handlePreviousClick} disabled={currentPage === 1}>
-              Previous
+          <div className="navButtons">
+            <button
+              className="previous"
+              onClick={handlePreviousClick}
+              disabled={currentPage === 1}
+            >
+              Page precedente
             </button>
 
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
-                disabled={currentPage === index + 1}
-              >
-                {index + 1}
-              </button>
-            ))}
-
             <button
+              className="next"
               onClick={handleNextClick}
               disabled={currentPage === totalPages}
             >
-              Next
+              Page suivante
             </button>
           </div>
         </div>

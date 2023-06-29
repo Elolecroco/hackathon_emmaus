@@ -28,3 +28,12 @@ CREATE TABLE users(
     hashed_password VARCHAR(255) NOT NULL,
     role VARCHAR(50) NOT NULL DEFAULT "user"
     );
+
+
+CREATE TABLE config(
+    id INT AUTO_INCREMENT PRIMARY KEY ,
+    storage INT NOT NULL,
+    ram INT NOT NULL,
+    screen FLOAT NOT NULL,
+    gsm VARCHAR(10) NOT NULL
+    );
