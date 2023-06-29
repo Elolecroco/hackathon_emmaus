@@ -9,11 +9,15 @@ const PhoneSurvey = () => {
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   const [selectedStorage, setSelectedStorage] = useState("");
+  const [selectedScreenQuality, setSelectedScreenQuality] = useState("");
+  const [selectedGlobalQuality, setSelectedGlobalQuality] = useState("")
   const [seeSection1, setSeeSection1] = useState(true);
   const [seeSection2, setSeeSection2] = useState(false);
   const [seeSection3, setSeeSection3] = useState(false);
   const [seeSection4, setSeeSection4] = useState(false);
   const [seeSection5, setSeeSection5] = useState(false);
+
+  
 
   return (
     <div>
@@ -31,14 +35,20 @@ const PhoneSurvey = () => {
             selectedBrand={selectedBrand}
             selectedModel={selectedModel}
             selectedStorage={selectedStorage}
+            selectedScreenQuality={selectedScreenQuality}
+            selectedGlobalQuality={selectedGlobalQuality}
           />
           <SurveyQuestion
             selectedBrand={selectedBrand}
             selectedModel={selectedModel}
             selectedStorage={selectedStorage}
+            selectedScreenQuality={selectedScreenQuality}
+            selectedGlobalQuality ={selectedGlobalQuality}
+            setSelectedGlobalQuality ={setSelectedGlobalQuality}
             setSelectedBrand={setSelectedBrand}
             setSelectedModel={setSelectedModel}
             setSelectedStorage={setSelectedStorage}
+            setSelectedScreenQuality={setSelectedScreenQuality}
             setSeeSection1={setSeeSection1}
             setSeeSection2={setSeeSection2}
             setSeeSection3={setSeeSection3}

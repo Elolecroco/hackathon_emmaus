@@ -10,14 +10,18 @@ const SurveyQuestion = ({
   selectedBrand,
   selectedModel,
   selectedStorage,
+  selectedScreenQuality,
   seeSection1,
   seeSection2,
   seeSection3,
   seeSection4,
   seeSection5,
+  selectedGlobalQuality,
+  setSelectedGlobalQuality,
   setSelectedBrand,
   setSelectedModel,
   setSelectedStorage,
+  setSelectedScreenQuality,
   setSeeSection1,
   setSeeSection2,
   setSeeSection3,
@@ -76,11 +80,11 @@ const SurveyQuestion = ({
       : seeSection2 ?
        <Section2 goTOSection3={goTOSection3} />
       : seeSection3 ? 
-       <Section3 goTOSection4={goTOSection4} />
+       <Section3 goTOSection4={goTOSection4} selectedScreenQuality={selectedScreenQuality} setSelectedScreenQuality={setSelectedScreenQuality} />
       : seeSection4 ?
         <Section4 goTOSection5={goTOSection5}/>
       : seeSection5 ?
-       <Section5 />
+       <Section5 setSelectedGlobalQuality ={setSelectedGlobalQuality} selectedGlobalQuality={selectedGlobalQuality}/>
       : null
       }
      
