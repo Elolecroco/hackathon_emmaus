@@ -17,7 +17,8 @@ const Navbar = () => {
             </Link>
             <div className='smartphone-options'>
                 <NavLink to='/phonesurvey' className={splitLocation[1] === "phonesurvey" ? "active" : ""}><p>Estimer un smartphone</p></NavLink>
-                <NavLink to='/addphone' className={splitLocation[1] === "addphone" ? "active" : ""}><p>Ajouter un smartphone</p></NavLink>
+                <NavLink to='/history' className={splitLocation[1] === "history" ? "active" : ""}><p>Nos smartphones</p></NavLink>
+                <NavLink to='/phonelist' className={splitLocation[1] === "phonelist" ? "active" : ""}><p>Ajouter un smartphone</p></NavLink>
             </div>
             <PiUser className='user-icon'/>
         </div>

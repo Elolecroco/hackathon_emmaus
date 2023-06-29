@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./phoneList.css";
 import Phones from "../components/PhoneList/Phones";
 import axios from "axios";
@@ -48,7 +49,7 @@ const PhoneList = () => {
         <div className="list_content">
           <div className="top">
             <h1>Base de donnée</h1>
-            <button>Ajouter un smartphone</button>
+            <Link to='/addphone'>Ajouter un smartphone</Link>
           </div>
           <div className="table">
             <div className="header">
@@ -56,6 +57,8 @@ const PhoneList = () => {
               <div className="model">Modele</div>
               <div className="storage">Stockage</div>
               <div className="ram">RAM</div>
+              <div className="screen">Ecran</div>
+              <div className="gsm">Reseau</div>
             </div>
 
             {currentResults &&

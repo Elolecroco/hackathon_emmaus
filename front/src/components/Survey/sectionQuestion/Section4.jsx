@@ -21,13 +21,13 @@ const Section4 = ({
             type="radio"
             id="option1"
             name="options"
-            value="Parfaite Etat"
-            checked={selectedStructurePhoneQuality === "Parfaite Etat"}
+            value="Parfait état"
+            checked={selectedStructurePhoneQuality === "Parfait état"}
             onChange={handleStructurePhoneQualityChange}
           />
         </div>
         <div className="chekbox_text">
-          <p className="section_title_screen">Parfaite Etat</p>
+          <p className="section_title_screen">Parfait état</p>
           <p>Parfait état, aucune rayure visible</p>
         </div>
       </label>
@@ -39,13 +39,13 @@ const Section4 = ({
             type="radio"
             id="option2"
             name="options"
-            value="Trés bon état"
-            checked={selectedStructurePhoneQuality === "Trés bon état"}
+            value="Très bon état"
+            checked={selectedStructurePhoneQuality === "Très bon état"}
             onChange={handleStructurePhoneQualityChange}
           />
         </div>
         <div className="chekbox_text">
-          <p className="section_title_screen">Trés bon état</p>
+          <p className="section_title_screen">Très bon état</p>
           <p>
             Peuvent présenter des micro-rayures à peine visibles (invisibles à
             20 cm), sans fissure et/ou impact
@@ -60,13 +60,13 @@ const Section4 = ({
             type="radio"
             id="option3"
             name="options"
-            value="Etat correcte"
-            checked={selectedStructurePhoneQuality === "Etat correcte"}
+            value="Etat correct"
+            checked={selectedStructurePhoneQuality === "Etat correct"}
             onChange={handleStructurePhoneQualityChange}
           />
         </div>
         <div className="chekbox_text">
-          <p className="section_title_screen">Etat correcte</p>
+          <p className="section_title_screen">Etat correct</p>
           <p>
             Peuvent présenter des traces d’usure visibles, des rayures profondes
             et/ou petits impacts

@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { PhoneController } = require("../controllers");
-const ifPhoneAlreadyExists = require("../middlewares/ifPhoneAlreadyExists");
+const { ifPhoneAlreadyExists } = require("../middlewares/index");
 
 const phoneRouter = Router();
 

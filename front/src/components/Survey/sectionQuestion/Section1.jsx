@@ -4,8 +4,13 @@ import '../surveyQuestion.css';
 
 const Section1 = ({
   setSelectedBrand,
+  selectedBrand,
   setSelectedModel,
+  selectedModel,
   setSelectedStorage,
+  selectedStorage,
+  setPhoneRam,
+  phoneRam,
   goTOSection2
 }) => {
 
@@ -14,6 +19,7 @@ const Section1 = ({
     brand: "",
     model: "",
     storage: "",
+    ram: "",
   });
   const [suggestions, setSuggestions] = useState({
     name: "",
@@ -26,12 +32,13 @@ const Section1 = ({
       .catch(err => console.error(err));
   }, []);
 
-  const brands = data?.reduce((acc, { brand, model, storage }) => {
+  const brands = data?.reduce((acc, { brand, model, storage, ram }) => {
     if (!acc.brand.includes(brand)) acc.brand.push(brand);
     if (!acc.model.includes(model)) acc.model.push(model);
     if (!acc.storage.includes(storage)) acc.storage.push(storage);
+    if (!acc.ram.includes(ram)) acc.ram.push(ram);
     return acc;
-  }, { brand: [], model: [], storage: [] });
+  }, { brand: [], model: [], storage: [], ram: [] });
 
   brands && brands.storage.sort((a, b) => {
     return a - b;
@@ -54,14 +61,39 @@ const Section1 = ({
     }
     
     if (key === "brand") {
-      setPhoneData({ ...phoneData, brand: value, model: "" });
+      setPhoneData({ ...phoneData, brand: value, model: "", storage: "" });
       setSelectedBrand(value);
       setSelectedModel("");
-    } else {
-      setPhoneData({ ...phoneData, [key]: value });
+      setSelectedStorage("");
+      setPhoneRam("")
+    } else if (key === "model") {
+      setPhoneData({ ...phoneData, model: value, storage: "" });
+      setSelectedModel(value);
+      setSelectedStorage("");
+      setPhoneRam("")
+    } else if (key === "storage") {
+      setPhoneData({ ...phoneData, storage: value });
+      setSelectedStorage(value);
+    
+      if (phoneData.brand && phoneData.model && phoneData.storage) {
+        const phone = data.find(
+          (item) =>
+
+            item.model === phoneData.model 
+        );
+        if (phone) {
+          setPhoneRam(phone.ram);
+        } else {
+          setPhoneRam("");
+        }
+      } else {
+        setPhoneRam("");
+      }
     }
   };
 
+  console.log(phoneRam);
+  
   const selectSuggestion = (value) => {
     const { name } = suggestions;
     setPhoneData({ ...phoneData, [name]: value });

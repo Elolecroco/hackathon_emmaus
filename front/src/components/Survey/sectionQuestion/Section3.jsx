@@ -19,13 +19,13 @@ const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQualit
             type="radio"
             id="option1"
             name="options"
-            value="Parfaite Etat"
-            checked={selectedScreenQuality === "Parfaite Etat"}
+            value="Parfait état"
+            checked={selectedScreenQuality === "Parfait état"}
             onChange={handleScreenQualityChange}
           />
         </div>
         <div className="chekbox_text">
-          <p className="section_title_screen">Parfaite Etat</p>
+          <p className="section_title_screen">Parfait état</p>
           <p>
             Parfait état, aucune rayure ni marque d'usure n'est visible. L'écran
             est fonctionnel et ne présente aucun pixel défectueux (ex: écran
@@ -41,13 +41,13 @@ const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQualit
             type="radio"
             id="option2"
             name="options"
-            value="Trés bon état"
-            checked={selectedScreenQuality === "Trés bon état"}
+            value="Très bon état"
+            checked={selectedScreenQuality === "Très bon état"}
             onChange={handleScreenQualityChange}
           />
         </div>
         <div className="chekbox_text">
-          <p className="section_title_screen">Trés bon état</p>
+          <p className="section_title_screen">Très bon état</p>
           <p>
             Peut présenter des micro-rayures à peine visibles (invisibles à 20
             cm), sans fissure et/ou impact. L'écran est fonctionnel et ne
@@ -64,13 +64,13 @@ const Section3 = ({ goTOSection4, setSelectedScreenQuality, selectedScreenQualit
             type="radio"
             id="option3"
             name="options"
-            value="Etat correcte"
-            checked={selectedScreenQuality === "Etat correcte"}
+            value="Etat correct"
+            checked={selectedScreenQuality === "Etat correct"}
             onChange={handleScreenQualityChange}
           />
         </div>
         <div className="chekbox_text">
-          <p className="section_title_screen">Etat correcte</p>
+          <p className="section_title_screen">Etat correct</p>
           <p>
             Peut présenter des traces d’usure visibles, des rayures profondes
             et/ou petits impacts. L'écran est fonctionnel et ne présente aucun

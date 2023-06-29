@@ -6,6 +6,12 @@
   padding: 4em;
 }
 
+.history_background h1{
+  font-weight: 600;
+  font-size: 1.7em;
+  margin-bottom: .25em;
+}
+
 .history_content {
   display: flex;
   flex-direction: column;

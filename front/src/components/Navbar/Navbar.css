@@ -31,7 +31,7 @@
 }
 .smartphone-options>a {
     height: 100%;
-    width: 15%;
+    width: fit-content;
     border-bottom: 5px solid transparent;
     display: flex;
     align-items: center;
