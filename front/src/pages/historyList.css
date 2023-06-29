@@ -1,0 +1,80 @@
+.history_background {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding: 4em;
+}
+
+.history_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  background-color: var(--lightest-color);
+  border-radius: 1.5em;
+  gap: 4em;
+  padding: 4em;
+}
+
+.history_top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.history_top button {
+  background-color: var(--dark-color);
+  color: var(--lightest-color);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 0.7em 1.5em;
+  border-radius: 1.5em;
+}
+
+.history_table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.history_header,
+.history_line {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 1.5em;
+}
+
+.history_header {
+  background-color: var(--highlight-color);
+  color: var(--lightest-color);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.history_line:nth-child(odd) {
+  background-color: var(--bg-color);
+}
+
+.history_brand {
+  width: 15%;
+}
+
+.history_model {
+  width: 20%;
+}
+
+.history_storage,
+.history_gsm {
+  width: 15%;
+  text-align: center;
+}
+
+.history_ram,
+.history_screen,
+.history_rank,
+.history_price {
+  width: 10%;
+  text-align: center;
+}

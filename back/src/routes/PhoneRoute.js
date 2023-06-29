@@ -5,5 +5,6 @@ const phoneRouter = Router();
 
 //ROUTES PHONES
 phoneRouter.get("", (req, res) => new PhoneController(req, res).getAll());
+phoneRouter.post("", (req, res) => new PhoneController(req, res).postItem());
 
 module.exports = phoneRouter;

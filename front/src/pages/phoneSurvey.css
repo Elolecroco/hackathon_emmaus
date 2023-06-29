@@ -1,12 +1,10 @@
-.survey_background{
-    background-color: var(--bg-color);
-    height: 100vh;
-    padding: 4em;
+.survey_background {
+  background-color: var(--bg-color);
+  height: 100vh;
+  padding: 4em;
 }
 
-.survey_content{
-    display: flex;
-    gap: 1em;
-
+.survey_content {
+  display: flex;
+  gap: 1em;
 }
-
