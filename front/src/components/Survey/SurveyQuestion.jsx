@@ -10,6 +10,8 @@ const SurveyQuestion = ({
   selectedBrand,
   selectedModel,
   selectedStorage,
+  unlockedSim,
+  screenState,
   seeSection1,
   seeSection2,
   seeSection3,
@@ -18,6 +20,8 @@ const SurveyQuestion = ({
   setSelectedBrand,
   setSelectedModel,
   setSelectedStorage,
+  setUnlockedSim,
+  setScreenState,
   setSeeSection1,
   setSeeSection2,
   setSeeSection3,
@@ -74,11 +78,11 @@ const SurveyQuestion = ({
         goTOSection2 ={goTOSection2}
       />
       : seeSection2 ?
-       <Section2 goTOSection3={goTOSection3} />
+       <Section2 setUnlockedSim={setUnlockedSim} goTOSection3={goTOSection3} />
       : seeSection3 ? 
        <Section3 goTOSection4={goTOSection4} />
       : seeSection4 ?
-        <Section4 goTOSection5={goTOSection5}/>
+        <Section4 setScreenState={setScreenState} goTOSection5={goTOSection5} />
       : seeSection5 ?
        <Section5 />
       : null
