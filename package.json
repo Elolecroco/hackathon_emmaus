@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setup": "npm i && npm --prefix ./front i && npm --prefix ./back i",
+    "all": "concurrently \"cd front && npm run dev\" \"cd back && npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.1.0"
+  }
 }

@@ -6,7 +6,7 @@
     
 }
 
-.section_list{
+.section_list {
     display: flex;
     flex-direction: column;
     font-size: 1.4em;
@@ -128,3 +128,58 @@ li{
 
 
 
+/* SECTION 2 CSS */
+.section2_question {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.section2_question>p,
+.section4_question>p {font-size: 1.4em; }
+.section2_info_icon {
+    height: 1.5em;
+    width: 1.5em;
+    margin-left: 1em;
+}
+.section2-info { 
+    width: 75%; 
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: var(--faded-color);
+    border-radius: 8px;
+}
+.section2-info-header {
+    padding-bottom: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.section2_choice>label,
+.section4_choice>label {
+    margin-left: 1em;
+    font-size: 1.3em;
+}
+
+.section2_showInfo {
+    position: absolute;
+    width: 15em;
+    padding: 1em;
+    right: 20%;
+    bottom: 10%;
+    background-color: var(--dark-color);
+    color: var(--bg-color);
+    border-radius: 8px;
+}
+
+/* SECTION 4 */
+.section4_choice {
+    margin: 1em;
+    padding: 0.5em;
+    border: 1px solid var(--dark-color);
+    border-radius: 8px;
+}
+.section4_choice>p {
+    margin: 0.5em;
+}
