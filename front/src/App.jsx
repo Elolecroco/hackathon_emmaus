@@ -11,10 +11,10 @@ import AddPhone from './pages/AddPhone';
 import Footer from './components/Footer/Footer';
 import PhoneList from "./pages/PhoneList";
 import HistoryList from "./pages/HistoryList";
-import AccordionDone from "./components/Accordion/Accordion";
 import Login from "./pages/Login";
 import MinConfig from "./pages/MinConfig";
 import tokenStorage from "./hooks/tokenStorage";
+import Faq from "./pages/Faq";
 
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
             ? <Route path="/minconfig" element={<MinConfig />} />
             : null}
           <Route path="/history" element={<HistoryList />} />
-          <Route path="/faq" element={<AccordionDone />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
         <Footer />
       </Router>
