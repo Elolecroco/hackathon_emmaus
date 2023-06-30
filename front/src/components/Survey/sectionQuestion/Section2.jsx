@@ -20,7 +20,7 @@ const Section2 = ({setUnlockedSim, goTOSection3}) => {
         <div className="section2_choice">
           <div className='section2_question'>
             <p>
-            Votre produit est-il débloqué tout opérateur ? 
+            Le produit est-il débloqué tout opérateur ? 
             </p>
             <LiaInfoCircleSolid className='section2_info_icon' onClick={displayInfo}/>
             {showInfo == true ? 

@@ -144,6 +144,12 @@ input[type="radio"]:checked::before {
 
 } 
 
+.not_accept{
+    color: var(--highlight-color);
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
 
 
 

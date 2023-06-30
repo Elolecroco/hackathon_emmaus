@@ -18,7 +18,7 @@ const Section1 = ({
   const [data, setData] = useState([]);
 
   const [minConfig, setMinConfig] = useState([]);
-  
+  const [minConfigRespected, setMinConfigRespected] = useState(0);
 
   const [phoneData, setPhoneData] = useState({
     brand: "",
@@ -38,17 +38,12 @@ const Section1 = ({
       .catch((err) => console.error(err));
   }, []);
 
-
   useEffect(() => {
     axios
       .get("http://localhost:5080/api/config")
-      .then((res) => 
-
-      setMinConfig(res.data))
+      .then((res) => setMinConfig(res.data))
       .catch((err) => console.error(err));
   }, []);
-
-  console.log(minConfig)
 
   const [selectedPhone, setSelectedPhone] = useState();
 
@@ -142,7 +137,26 @@ const Section1 = ({
   const modelAvailable = data.filter((el) => el.brand === selectedBrand);
   const storageAvailable = data.filter((el) => el.model === selectedModel);
 
+  console.log(minConfig);
+  console.log("---", selectedPhoneObject);
+  console.log(minConfigRespected);
 
+  useEffect(() => {
+    if (minConfig && selectedPhoneObject.length > 0) {
+      if (
+        minConfig[0].ram <= selectedPhoneObject[0].ram &&
+        minConfig[0].screen <= selectedPhoneObject[0].screen &&
+        minConfig[0].storage <= selectedPhoneObject[0].storage &&
+        (selectedPhoneObject[0].gsm === "4G" ||
+          selectedPhoneObject[0].gsm === "5G" ||
+          selectedPhoneObject[0].gsm === "6G")
+      ) {
+        setMinConfigRespected(1)
+      } else {
+        setMinConfigRespected(2)
+      }
+    }
+  }, [selectedPhoneObject]);
 
   return (
     <div className="question_section">
@@ -205,7 +219,6 @@ const Section1 = ({
           value={selectedPhone}
           onChange={handleSelectedStorage}
         >
-
           <option value="">---</option>
           {storageAvailable.map((el, index) => (
             <option key={index} value={el.storage}>
@@ -214,8 +227,8 @@ const Section1 = ({
           ))}
         </select>
       </div>
-
-      <button onClick={goTOSection2}>Continuer</button>
+      {minConfigRespected === 1 ?  <button onClick={goTOSection2}>Continuer</button> : minConfigRespected === 2 ? <p className="not_accept">Téléphone plus pris en charge</p> : null }
+      
     </div>
   );
 };

@@ -41,7 +41,6 @@ const HistoryList = () => {
     handlePageChange(currentPage + 1);
   };
 
-  console.log(phones);
 
   return (
     <div>
