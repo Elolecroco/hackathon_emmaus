@@ -28,7 +28,6 @@ const PhoneSurvey = () => {
   const [seeSection5, setSeeSection5] = useState(false);
   const [seeAllInformation, setSeeAllInformation] = useState(false);
 
-  console.log(phonePrice)
 
   return (
     <div>
