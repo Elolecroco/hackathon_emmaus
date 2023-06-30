@@ -28,7 +28,9 @@ const Home = () => {
             <Link to="/history">Liste de nos smartphones</Link>
           </div>
           <p>
-          Cette section affiche la liste des téléphones enregistrés dans la base de données, en fournissant des informations détaillées sur leurs caractéristiques techniques et en estimant leur prix de revente.
+            Cette section affiche l'historique des smartphones déjà estimés, en
+            fournissant des informations détaillées sur leurs caractéristiques
+            techniques, leur classement et leur prix de revente.
           </p>
         </div>
       </div>
