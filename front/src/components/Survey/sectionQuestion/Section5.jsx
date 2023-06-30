@@ -36,8 +36,7 @@ const Section5 = ({
         </li>
         <li className="button_list_section">
           Note importante : Assurez-vous de vous déconnecter de tous les comptes
-          (iCloud, Google ou autres), que votre appareil soit opérationnel ou
-          non. Nous n'acceptons pas les articles déformés et/ou oxydés.
+          (iCloud, Google ou autres), que l'appareil soit opérationnel. Nous n'acceptons pas les articles déformés et/ou oxydés.
         </li>
       </ul>
       <div className="section_question_part_five">
