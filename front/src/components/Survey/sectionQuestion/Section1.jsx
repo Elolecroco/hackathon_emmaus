@@ -18,6 +18,7 @@ const Section1 = ({
   const [data, setData] = useState([]);
 
   const [minConfig, setMinConfig] = useState([]);
+  
 
   const [phoneData, setPhoneData] = useState({
     brand: "",
@@ -41,10 +42,13 @@ const Section1 = ({
   useEffect(() => {
     axios
       .get("http://localhost:5080/api/config")
-      .then((res) => setMinConfig(res.data))
+      .then((res) => 
+
+      setMinConfig(res.data))
       .catch((err) => console.error(err));
   }, []);
 
+  console.log(minConfig)
 
   const [selectedPhone, setSelectedPhone] = useState();
 
@@ -139,7 +143,6 @@ const Section1 = ({
   const storageAvailable = data.filter((el) => el.model === selectedModel);
 
 
-  console.log(minConfig);
 
   return (
     <div className="question_section">
@@ -200,8 +203,10 @@ const Section1 = ({
           name="memory"
           id="memory"
           value={selectedPhone}
-          onClick={handleSelectedStorage}
+          onChange={handleSelectedStorage}
         >
+
+          <option value="">---</option>
           {storageAvailable.map((el, index) => (
             <option key={index} value={el.storage}>
               {el.storage}
