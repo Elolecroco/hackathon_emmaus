@@ -99,7 +99,6 @@ const AddPhone = () => {
         axios.post('http://localhost:5080/api/phones', newPhone)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
-        console.log(newPhone);
     }
 
   return (

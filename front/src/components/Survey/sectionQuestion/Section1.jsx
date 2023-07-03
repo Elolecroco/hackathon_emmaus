@@ -137,9 +137,7 @@ const Section1 = ({
   const modelAvailable = data.filter((el) => el.brand === selectedBrand);
   const storageAvailable = data.filter((el) => el.model === selectedModel);
 
-  console.log(minConfig);
-  console.log("---", selectedPhoneObject);
-  console.log(minConfigRespected);
+
 
   useEffect(() => {
     if (minConfig && selectedPhoneObject.length > 0) {
