@@ -1,0 +1,62 @@
+.state_background{
+    padding: 1em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.survey_state_texte_background{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.survey_total_line{
+    height: 0.2em;
+    background-color: var(--faded-color);
+}
+
+.survey_line_background{
+    position: relative;
+}
+
+.survey_position_line{
+    position: absolute;
+    top: 0;
+    height: 0.2em;
+    background-color: var(--highlight-color);
+    width: 20%;
+}
+
+.survey_position_line.fourty_percent{
+    width: 40%;
+}
+
+.survey_position_line.sixty_percent{
+    width: 60%;
+}
+
+.survey_position_line.heighty_percent{
+    width: 80%;
+}
+
+.survey_position_line.hundred_percent{
+    width: 100%;
+    height: 0.3em;
+    border-radius: 1em;
+}
+
+.return:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--highlight-color);
+  }
+
+@media (max-width: 860px) {
+    .return{
+        font-size: 0.8em; 
+        text-align: start;
+    }
+}
