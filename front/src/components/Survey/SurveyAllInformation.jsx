@@ -20,7 +20,7 @@ const SurveyAllInformation = ({
   phonePrice,
   selectedPhoneObject
 }) => {
-  
+
 
   let navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const SurveyAllInformation = ({
   }
 
   const sendPhoneOnBack = () => {
-    
+
     const newPhone = {
       "brand": selectedPhoneObject[0].brand,
       "model": selectedPhoneObject[0].model,
@@ -41,12 +41,14 @@ const SurveyAllInformation = ({
       "rank": phoneRating
     }
 
-    axios.post("http://localhost:5080/api/history", newPhone)
-      .then((res)=> {if(res.status === 201){
-        setSeeAllInformation(false)
-        navigate('/');
-        confetti()
-      }})
+    axios.post("http:///api/history", newPhone)
+      .then((res) => {
+        if (res.status === 201) {
+          setSeeAllInformation(false)
+          navigate('/');
+          confetti()
+        }
+      })
   }
 
   return (
@@ -62,7 +64,7 @@ const SurveyAllInformation = ({
             <p className="price_categorie">{phoneRating}</p>
           </div>
 
-          <button className="send_button"onClick={sendPhoneOnBack}>Valider</button>
+          <button className="send_button" onClick={sendPhoneOnBack}>Valider</button>
         </div>
         <div className="resume_section_background">
           <p className="title_price">Résumé</p>
