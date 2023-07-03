@@ -19,7 +19,7 @@ const HistoryList = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5080/api/history`)
+      .get(`http:///api/history`)
       .then((res) => res.data)
       .then((data) => setPhones(data));
   }, []);
