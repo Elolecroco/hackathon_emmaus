@@ -8,9 +8,13 @@ const Footer = () => {
 
   return (
     <div className="footer-container">
+      {!maxWidth850 
+      ? 
       <div className="footer-logo-container">
-        {!maxWidth850 ? <img src={logo_ver2} /> : null}
+        <img src={logo_ver2} />
       </div>
+      :
+      null}
       <div className="footer-faq">
         <Link to="/faq">FAQ</Link>
         <p>Mentions legales</p>
