@@ -96,6 +96,7 @@ const AddPhone = () => {
     //On Sending the form
     const sendingForm = (e) => {
         e.preventDefault();
+
         axios.post('http:///api/phones', newPhone)
             .then((res) => console.log(res))
             .catch((err) => console.log(err));

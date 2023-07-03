@@ -34,8 +34,6 @@ const MinConfig = () => {
 
     }
 
-    console.log(data);
-
     useEffect(() => {
         axios.get('http:///api/config')
             .then(res => {
